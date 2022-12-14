@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Práctica 2 </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Apellidos</ion-label>
+    <ion-input [(ngModel)]="apellidos"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Provincia</ion-label>
+    <ion-input [(ngModel)]="provincia"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="estadoCivil">
+      <ion-list-header>
+        <ion-label>Estado Civil</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Soltero</ion-label>
+        <ion-radio slot="start" value="soltero"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Casado</ion-label>
+        <ion-radio slot="start" value="casado" ></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Divorciado</ion-label>
+        <ion-radio slot="start" value="divorciado"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Separado</ion-label>
+        <ion-radio slot="start" value="separado"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <ion-item>
+      <ion-label>Familia Numerosa</ion-label>
+    </ion-item>
+
+    <ion-radio-group [(ngModel)]="familiaNumerosa">
+      <ion-item>
+        <ion-label>Sí</ion-label>
+        <ion-radio slot="start" value="si"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>No</ion-label>
+        <ion-radio slot="start" value="no"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-item>
+  <ion-button [disabled]="!activarBoton()">Boton</ion-button>
+</ion-item>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagina2</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+     </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <h6>Apellidos: {{alumno.apellidos}}</h6>
+    <h6>Nombre: {{alumno.nombre}}</h6>
+    <h6>Sexo: {{alumno.sexo}}</h6>
+    <h6>Edad: {{alumno.edad}}</h6>
+  </ion-list>
+
+  <ion-list *ngIf="alumno.edad >= 18">
+  <h6>DNI: {{alumno.dni}}</h6>
+    <h6>Trabaja: {{alumno.trabaja}}</h6>
+    <h6>Estado Civil: {{alumno.estadoCivil}}</h6>
+  </ion-list>
+
+  <ion-list *ngIf="alumno.edad < 18">
+    <h6>DNI Padre: {{alumno.dniPadre}}</h6>
+    <h6>DNI Madre: {{alumno.dniMadre}}</h6>
+    <h6>Apellidos Padre: {{alumno.apellidosPadre}}</h6>
+    <h6>Apellidos Madre: {{alumno.apellidosMadre}}</h6>
+  </ion-list>
+</ion-content>

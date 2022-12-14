@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Hoteles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <h1>{{this.ciudad.ciudad}}</h1>
+    <ion-item *ngFor="let hotel of ciudad.hoteles" (click)="datosHotel(hotel)">
+      <ion-label>{{hotel.nombre}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

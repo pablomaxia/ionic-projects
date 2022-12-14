@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-select placeholder="Selecciona un producto" multiple="true" [(ngModel)]="idProductosSel">
+      <ion-label *ngFor="let prod of productos">
+      <ion-select-option value="{{prod}}" (select)="presentAlert()">
+        {{prod.id + " - " + prod.descripcion}}
+      </ion-select-option>
+    </ion-label>
+    </ion-select>
+  </ion-item>
+
+  <!-- <ion-item *ngIf="productosUni">
+    <ion-list *ngFor="let prod of productosUni">
+      <h6>{{prod.id}}</h6>
+      <h6>{{prod.descripcion}}</h6>
+      <h6>{{prod.precio}}</h6>
+      <h6>{{prod.unidades}}</h6>
+    </ion-list>
+  </ion-item> -->
+ 
+</ion-content>

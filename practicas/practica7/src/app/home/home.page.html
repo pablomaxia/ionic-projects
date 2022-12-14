@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Blank </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-radio-group [(ngModel)]="opcion" [hidden]="opcion == 'eso' || opcion == 'ciclo'">
+    <ion-item>
+      <ion-label>ESO</ion-label>
+      <ion-radio id="eso" value="eso"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ciclo</ion-label>
+      <ion-radio id="ciclo" value="ciclo"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <ion-list>
+      <ion-radio-group [(ngModel)]="opcion2" *ngIf="opcion == 'eso'">
+        <ion-item>
+          <ion-label>1ºESO</ion-label>
+          <ion-radio id="1eso" value="1eso"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>2ºESO</ion-label>
+          <ion-radio id="2eso" value="2eso"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>3ºESO</ion-label>
+          <ion-radio id="3eso" value="3eso"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>repiteESO</ion-label>
+          <ion-checkbox [(ngModel)]="repite"></ion-checkbox>
+          </ion-item>
+      </ion-radio-group>
+
+      <ion-item *ngIf="opcion == 'ciclo'">
+        <ion-label>ciclo</ion-label>
+        <ion-select [(ngModel)]="opcion2">
+          <ion-select-option *ngFor="let item of ciclos" value="{{item}}">{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-button [disabled]="opcion2 == ''" (click)="aceptar()">Aceptar</ion-button>
+      </ion-item>
+
+  </ion-list>
+</ion-content>
