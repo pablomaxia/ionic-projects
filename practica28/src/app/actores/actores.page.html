@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Actores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let actor of actores">
+      <ion-row>
+        <ion-col size="12"> <h6>Nombre: {{actor.nombre}}</h6> </ion-col>
+        <ion-col size="12">
+          <h6>Nacionalidad: {{actor.nacionalidad}}</h6>
+        </ion-col>
+        <ion-col size="12">
+          <h6>Año de nacimiento: {{actor.nacimiento}}</h6></ion-col
+        >
+        <ion-col size="12">
+          <ion-button
+            (click)="borrar(actor)"
+            class="ion-float-end"
+            color="light"
+          >
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
