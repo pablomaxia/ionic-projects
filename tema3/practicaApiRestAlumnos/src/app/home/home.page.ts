@@ -60,7 +60,7 @@ Si el borrado ha ido mal muestro por consola el error que ha ocurrido.
   /*
   este método comentado permite modificar los datos del alumno mediante un alertController
 */
-  async modificarAlumno(indice: number) {
+  /*async modificarAlumno(indice: number) {
     let alumno = this.alumnos[indice];
     const alert = await this.alertController.create({
       header: 'Modificar',
@@ -157,5 +157,5 @@ Si el borrado ha ido mal muestro por consola el error que ha ocurrido.
       ],
     });
     await alert.present();
-  } //end_modificarAlumno
+  } //end_modificarAlumno*/
 } //end_class

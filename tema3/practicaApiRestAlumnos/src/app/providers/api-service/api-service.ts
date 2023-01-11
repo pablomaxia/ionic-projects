@@ -62,7 +62,7 @@ export class ApiServiceProvider {
     return promise;
   } //end_eliminar_alumno
 
-  modificarAlumno(nuevosDatosAlumno: Alumno): Promise<Alumno> {
+  /*modificarAlumno(nuevosDatosAlumno: Alumno): Promise<Alumno> {
     let promise = new Promise<Alumno>((resolve, reject) => {
       var header = { headers: { 'Content-Type': 'application/json' } };
       let datos = JSON.stringify(nuevosDatosAlumno);
@@ -80,5 +80,5 @@ export class ApiServiceProvider {
         });
     });
     return promise;
-  } //end_modificar_alumno
+  } //end_modificar_alumno*/
 } //end_class
