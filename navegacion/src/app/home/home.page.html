@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/pagina2" icon="arrow-forward-outline"></ion-back-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <p>Soy la página principal</p>
+    <ion-button (click)="goToPagina2()" routerDirection="forward">Ir a la página 2</ion-button>
+    <ion-button routerLink="/pagina3" routerDirection="forward">Ir a la página 3</ion-button>
+    <ion-button routerLink="/pagina4" routerDirection="forward">Ir a la página 4</ion-button>
+    <ion-button routerLink="/pagina5" routerDirection="forward">Ir a la página 5</ion-button>
+  </div>
+</ion-content>

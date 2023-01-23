@@ -1,0 +1,7 @@
+{
+  "name": "previsionTiempo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

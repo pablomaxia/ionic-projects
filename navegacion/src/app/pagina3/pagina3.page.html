@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pagina3</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/pagina2"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button
+        defaultHref="/pagina4"
+        icon="arrow-forward-outline"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <p>Soy la página 3</p>
+    <ion-button routerLink="/home" routerDirection="back">Ir a home</ion-button>
+    <ion-button routerLink="/pagina2" routerDirection="back">Volver a la página 2</ion-button>
+    <ion-button routerLink="/pagina4" routerDirection="forward">Ir a la página 4</ion-button>
+    <ion-button routerLink="/pagina5" routerDirection="forward">Ir a la página 5</ion-button>
+  </div>
+</ion-content>

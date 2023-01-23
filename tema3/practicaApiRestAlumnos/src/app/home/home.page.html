@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Alumnos </ion-title>
+    <ion-item>
+      <ion-button (click)="busquedaAlumno()">
+        <ion-icon slot="icon-only" name="search-circle"></ion-icon></ion-button
+    ></ion-item>
+    <!--end búsqueda-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let alumno of alumnos; let indice=index;">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">{{alumno.last_name}}, {{alumno.first_name}}</ion-col>
+        <ion-col size="2"></ion-col>
+        <ion-col size="1">
+          <button ion-button icon-only (click)="modificarAlumno(indice)" danger>
+            <ion-icon name="create-outline"></ion-icon>
+          </button>
+        </ion-col>
+        <!--END BUTTON PUT-->
+        <ion-col size="1">
+          <button ion-button icon-only (click)="eliminarAlumno(indice)" danger>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+        <!--END BUTTON DELETE-->
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <!--END ROW-->
+    </ion-grid>
+    <!--END GRID-->
+  </ion-card>
+  <!--END CARD-->
+  <ion-toolbar>
+    <ion-item>
+      <ion-button *ngIf="numPagina > 1" (click)="paginaInicio()">
+        <ion-icon slot="icon-only" name="play-back-outline"></ion-icon
+      ></ion-button>
+      <!--end inicio-->
+      <ion-button *ngIf="numPagina > 1" (click)="paginaAnterior()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon
+      ></ion-button>
+      <!--end anterior-->
+      <ion-button (click)="paginaSiguiente()">
+        <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon
+      ></ion-button>
+      <!--end siguiente-->
+    </ion-item>
+  </ion-toolbar>
+  <!--end toolbar_paginas-->
+</ion-content>

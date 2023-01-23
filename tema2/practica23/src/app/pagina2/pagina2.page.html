@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pagina2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h6>Fecha: {{this.partido.fecha}}</h6>
+  <h6>
+    {{this.partido.local}} - {{this.partido.goles_local}}
+    {{this.partido.visitante}}- {{this.partido.goles_visitante}}
+  </h6>
+  <h3>Alineacion {{this.partido.local}}</h3>
+  <ion-list *ngFor="let jug of this.partido.jugadores_local">
+    <ion-item>{{jug}}</ion-item>
+  </ion-list>
+  <h3>Alineacion {{this.partido.visitante}}</h3>
+  <ion-list *ngFor="let jug of this.partido.jugadores_visitante">
+    <ion-item>{{jug}}</ion-item>
+  </ion-list>
+</ion-content>

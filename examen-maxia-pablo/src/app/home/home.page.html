@@ -1,0 +1,184 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Partidos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="!nuevo_partido && !editar">
+    <ion-list *ngFor="let partido of partidos">
+      <ion-item (click)="partidoClick(partido)">
+        <ion-label
+          >{{partido.local}}-{{partido.goles_local}}</ion-label
+        > </ion-item
+      ><ion-item (click)="partidoClick(partido)"
+        ><ion-label
+          >{{partido.visitante}}-{{partido.goles_visitante}}</ion-label
+        >
+      </ion-item>
+    </ion-list>
+    <!--end lista partidos-->
+  </div>
+  <!--end contenedor lista-->
+  <ion-item *ngIf="!editar">
+    <ion-label>Nuevo partido</ion-label>
+    <ion-checkbox
+      [(ngModel)]="nuevo_partido"
+      (ionChange)="nuevoPartido($event)"
+    ></ion-checkbox>
+  </ion-item>
+  <!--end checkbox-->
+  <div *ngIf="nuevo_partido && !editar">
+    <form
+      [formGroup]="validations_form"
+      (ngSubmit)="onSubmit(validations_form.value)"
+    >
+      <ion-item>
+        <ion-label color="primary" position="floating">local</ion-label>
+        <ion-input type="text" formControlName="local"></ion-input>
+      </ion-item>
+      <!--end local-->
+      <ion-item>
+        <ion-label color="primary" position="floating">visitante</ion-label>
+        <ion-input type="text" formControlName="visitante"></ion-input>
+      </ion-item>
+      <!--end visitante-->
+      <ion-item>
+        <ion-button
+          class="submit-btn"
+          type="submit"
+          expand="block"
+          color="primary"
+          [disabled]="!validations_form.valid"
+        >
+          ACEPTAR
+        </ion-button>
+      </ion-item>
+      <!--end submit button-->
+    </form>
+    <!--end form-->
+  </div>
+  <!--end div form-->
+  <div *ngIf="editar">
+    <div *ngIf="!modo_editar_input_local">
+      <ion-item>
+        <ion-label>{{partido.local}} {{partido.goles_local}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorLocal(1)"
+          [disabled]="no_editar_local"
+          >+1</ion-button
+        >
+      </ion-item>
+      <!--end button+1-->
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorLocal(2)"
+          [disabled]="no_editar_local"
+          >+2</ion-button
+        >
+      </ion-item>
+      <!--end button+2-->
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorLocal(3)"
+          [disabled]="no_editar_local"
+          >+3</ion-button
+        ></ion-item
+      >
+      <!--end button+3-->
+    </div>
+    <!--end editar local botones-->
+
+    <div *ngIf="modo_editar_input_local">
+      <ion-item>
+        <ion-label>puntos {{partido.local}}</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="partido.goles_local"
+          [disabled]="no_editar_local"
+        ></ion-input>
+      </ion-item>
+    </div>
+    <!--end editar local input-->
+    <ion-item>
+      <ion-button
+        color="primary"
+        expand="block"
+        (click)="editarModoLocal()"
+        [disabled]="no_editar_local"
+        >EDITAR</ion-button
+      >
+    </ion-item>
+    <!--end editar-->
+    <div *ngIf="!modo_editar_input_visit">
+      <ion-item>
+        <ion-label>{{partido.visitante}} {{partido.goles_visitante}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorVisit(1)"
+          [disabled]="no_editar_visitante"
+          >+1</ion-button
+        >
+      </ion-item>
+      <!--end button+1-->
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorVisit(2)"
+          [disabled]="no_editar_visitante"
+          >+2</ion-button
+        >
+      </ion-item>
+      <!--end button+2-->
+      <ion-item>
+        <ion-button
+          color="primary"
+          expand="block"
+          (click)="marcadorVisit(3)"
+          [disabled]="no_editar_visitante"
+          >+3</ion-button
+        ></ion-item
+      >
+      <!--end button+3-->
+    </div>
+    <div *ngIf="modo_editar_input_visit">
+      <ion-item>
+        <ion-label>puntos {{partido.visitante}}</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="partido.goles_visitante"
+          [disabled]="no_editar_visitante"
+        ></ion-input>
+      </ion-item>
+    </div>
+    <ion-item>
+      <ion-button
+        color="primary"
+        expand="block"
+        (click)="editarModoVisit()"
+        [disabled]="no_editar_visitante"
+        >EDITAR</ion-button
+      >
+    </ion-item>
+    <!--end editar-->
+    <!--end editar visitante input-->
+    <ion-item>
+      <ion-button color="primary" expand="block" (click)="volverInicio()"
+        >VOLVER</ion-button
+      >
+    </ion-item>
+    <!--end volver-->
+  </div>
+</ion-content>

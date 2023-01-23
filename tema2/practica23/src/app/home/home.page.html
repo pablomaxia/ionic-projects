@@ -1,0 +1,248 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Partidos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form
+    [formGroup]="validations_form"
+    (ngSubmit)="onSubmit(validations_form.value)"
+  >
+    <ion-item>
+      <ion-label color="primary" position="floating">Fecha:</ion-label>
+      <ion-input type="text" formControlName="fecha"></ion-input>
+    </ion-item>
+    <!--end fecha-->
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.fecha">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('fecha')?.hasError(validation.type)
+      && (validations_form.get('fecha')?.dirty
+      || validations_form.get('fecha')?.touched)"
+        >
+          <ion-icon name="information-circle-outline"></ion-icon> {{
+          validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--end mensajes fecha-->
+    <ion-row>
+      <ion-col size="12" size-sm="6">
+        <ion-item>
+          <ion-label color="primary" position="floating"
+            >Equipo Local:</ion-label
+          >
+          <ion-select
+            formControlName="local"
+            cancelText="Cancel"
+            okText="OK"
+            (ionChange)="onChangeEquipo($event)"
+          >
+            <ion-select-option *ngFor="let equipo of equipos" [value]="equipo"
+              >{{equipo.equipo}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!--end local-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.local">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('local')?.hasError(validation.type)
+          && (validations_form.get('local')?.dirty
+          || validations_form.get('local')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end mensajes local-->
+      </ion-col>
+      <ion-col size="12" size-sm="6">
+        <ion-item>
+          <ion-label color="primary" position="floating"
+            >Equipo Visitante:</ion-label
+          >
+          <ion-select
+            formControlName="visitante"
+            cancelText="Cancel"
+            okText="OK"
+            (ionChange)="onChangeEquipo($event)"
+          >
+            <ion-select-option *ngFor="let equipo of equipos" [value]="equipo"
+              >{{equipo.equipo}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!--end visitante-->
+        <div class="validation-errors">
+          <ng-container
+            *ngFor="let validation of validation_messages.visitante"
+          >
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('visitante')?.hasError(validation.type)
+          && (validations_form.get('visitante')?.dirty
+          || validations_form.get('visitante')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end mensajes local-->
+      </ion-col>
+    </ion-row>
+
+    <div
+      *ngIf="validations_form.get('local')?.valid && validations_form.get('visitante')?.valid &&
+      validations_form.get('local')?.value !== validations_form.get('visitante')?.value &&
+      validations_form.get('fecha')?.valid"
+    >
+      <ion-item><ion-label color="primary">Resultado:</ion-label></ion-item>
+      <ion-row>
+        <ion-col size="12" size-sm="6" size-md="3">
+          <ion-item>
+            <ion-input type="number" formControlName="goles_local"></ion-input>
+            <!--end goles_local-->
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container
+              *ngFor="let validation of validation_messages.goles_local"
+            >
+              <div
+                class="error-message"
+                *ngIf="validations_form.get('goles_local')?.hasError(validation.type)
+            && (validations_form.get('goles_local')?.dirty
+            || validations_form.get('goles_local')?.touched)"
+              >
+                <ion-icon name="information-circle-outline"></ion-icon> {{
+                validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <!--end mensajes goles_local-->
+        </ion-col>
+        <ion-col size="12" size-sm="6" size-md="3">
+          <ion-item><ion-label>-</ion-label></ion-item>
+        </ion-col>
+        <ion-col size="12" size-sm="6" size-md="3">
+          <ion-item>
+            <ion-input
+              type="number"
+              formControlName="goles_visitante"
+            ></ion-input>
+            <!--end goles_visitante-->
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container
+              *ngFor="let validation of validation_messages.goles_visitante"
+            >
+              <div
+                class="error-message"
+                *ngIf="validations_form.get('goles_visitante')?.hasError(validation.type)
+            && (validations_form.get('goles_visitante')?.dirty
+            || validations_form.get('goles_visitante')?.touched)"
+              >
+                <ion-icon name="information-circle-outline"></ion-icon> {{
+                validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <!--end mensajes goles_visitante-->
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-sm="6" size-md="3">
+          <ion-item>
+            <ion-label
+              >Alineación
+              {{validations_form.get('local')?.value.equipo}}</ion-label
+            >
+            <ion-select
+              multiple
+              formControlName="jugadores_local"
+              cancelText="Cancel"
+              okText="OK"
+            >
+              <ion-select-option
+                *ngFor="let jugador of validations_form.get('local')?.value.jugadores"
+                [value]="jugador"
+                >{{jugador}}
+              </ion-select-option>
+            </ion-select> </ion-item
+          ><!--end alineacion_local-->
+          <div class="validation-errors">
+            <ng-container
+              *ngFor="let validation of validation_messages.jugadores_local"
+            >
+              <div
+                class="error-message"
+                *ngIf="validations_form.get('jugadores_local')?.hasError(validation.type)
+            && (validations_form.get('jugadores_local')?.dirty
+            || validations_form.get('jugadores_local')?.touched)"
+              >
+                <ion-icon name="information-circle-outline"></ion-icon> {{
+                validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <!--end mensajes jugadores_local-->
+        </ion-col>
+
+        <ion-col size="12" size-sm="6" size-md="3">
+          <ion-item>
+            <ion-label>
+              Alineación {{validations_form.get('visitante')?.value.equipo}}
+            </ion-label>
+            <ion-select
+              multiple
+              formControlName="jugadores_visitante"
+              cancelText="Cancel"
+              okText="OK"
+            >
+              <ion-select-option
+                *ngFor="let jugador of validations_form.get('visitante')?.value.jugadores"
+                [value]="jugador"
+                >{{jugador}}
+              </ion-select-option>
+            </ion-select>
+            <!--end alineacion_visitante-->
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container
+              *ngFor="let validation of validation_messages.jugadores_visitante"
+            >
+              <div
+                class="error-message"
+                *ngIf="validations_form.get('jugadores_visitante')?.hasError(validation.type)
+            && (validations_form.get('jugadores_visitante')?.dirty
+            || validations_form.get('jugadores_visitante')?.touched)"
+              >
+                <ion-icon name="information-circle-outline"></ion-icon> {{
+                validation.message }}
+              </div>
+            </ng-container>
+          </div>
+          <!--end mensajes jugadores_visitante-->
+        </ion-col>
+      </ion-row>
+    </div>
+    <!--end resultado-->
+    <ion-item>
+      <ion-button
+        class="submit-btn"
+        type="submit"
+        expand="block"
+        color="primary"
+        [disabled]="!validations_form.valid"
+        >ACEPTAR
+      </ion-button>
+    </ion-item>
+    <!--end button-->
+  </form>
+  <!--end form-->
+</ion-content>

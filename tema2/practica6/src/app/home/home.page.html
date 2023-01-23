@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-radio-group [(ngModel)]="cat" *ngIf="!pulsado">
+  <ion-item>
+    <ion-label>Categorías</ion-label>
+  </ion-item>
+  <ion-item *ngFor="let item of categorias">
+    <ion-label>{{item}}</ion-label>
+    <ion-radio value="{{item}}"></ion-radio>
+  </ion-item>
+ </ion-radio-group>
+
+ <ion-item *ngIf="!pulsado">
+  <ion-label>Sueldo</ion-label>
+  <ion-input [(ngModel)]="sueldo" inputmode="numeric"></ion-input>
+ </ion-item>
+
+ <ion-item *ngIf="!pulsado">
+  <ion-label>Prácticas</ion-label>
+  <ion-checkbox [(ngModel)]="practicas"></ion-checkbox>
+ </ion-item>
+
+ <ion-item *ngIf="!pulsado">
+  <ion-label>Ciudades</ion-label>
+  <ion-select [(ngModel)]="ciudad">
+    <ion-select-option *ngFor="let city of ciudades" value="{{city}}">{{city}}</ion-select-option>
+  </ion-select>
+ </ion-item>
+
+ <ion-item *ngIf="!pulsado">
+  <ion-button (click)="buscar()" [(ngModel)]="pulsado">Buscar</ion-button>
+ </ion-item>
+
+ <ion-item *ngIf="pulsado">
+  <ion-label>Empleados</ion-label>
+  <ion-list>
+    <ion-text *ngFor="let item of empleadosMostrar">
+      {{
+      "Apellidos: " + item.apellidos + "\n" +
+      "Nombre: " + item.nombre + "\n" +
+      "Prácticas: " + item.practicas + "\n" +
+      "Sueldo: " + item.sueldo + "\n" +
+      "Categoría: " + item.categoria + "\n" +
+      "Ciudad: " + item.ciudad + "\n"
+      }}
+    </ion-text>
+  </ion-list>
+ </ion-item>
+
+
+</ion-content>

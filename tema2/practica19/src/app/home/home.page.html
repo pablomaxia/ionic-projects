@@ -1,0 +1,248 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Alumno </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" padding class="form-content">
+  <form
+    [formGroup]="validations_form"
+    (ngSubmit)="onSubmit(validations_form.value)"
+  >
+    <ion-item>
+      <ion-label position="floating" color="primary">Apellidos:</ion-label>
+      <ion-input type="text" formControlName="apellidos"></ion-input>
+    </ion-item>
+    <!--end apellidos-->
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.apellidos">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('apellidos')?.hasError(validation.type)
+      && (validations_form.get('apellidos')?.dirty
+      || validations_form.get('apellidos')?.touched)"
+        >
+          <ion-icon name="information-circle-outline"></ion-icon> {{
+          validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--end validaciones apellidos-->
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre:</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <!--end nombre-->
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.nombre">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('nombre')?.hasError(validation.type)
+      && (validations_form.get('nombre')?.dirty
+      || validations_form.get('nombre')?.touched)"
+        >
+          <ion-icon name="information-circle-outline"></ion-icon> {{
+          validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--end validaciones nombre-->
+    <ion-item>
+      <ion-label color="primary">Sexo</ion-label>
+
+      <ion-select formControlName="sexo" cancelText="Cancel" okText="OK">
+        <ion-select-option *ngFor="let gender of genders" [value]="gender"
+          >{{gender}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <!--end sexo-->
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.sexo">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('sexo')?.hasError(validation.type)
+      && (validations_form.get('sexo')?.dirty
+      || validations_form.get('sexo')?.touched)"
+        >
+          <ion-icon name="information-circle-outline"></ion-icon> {{
+          validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--end validaciones sexo-->
+    <ion-item>
+      <ion-label position="floating" color="primary">Edad:</ion-label>
+      <ion-input type="text" formControlName="edad"></ion-input>
+    </ion-item>
+    <!--end edad-->
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.edad">
+        <div
+          class="error-message"
+          *ngIf="validations_form.get('edad')?.hasError(validation.type)
+      && (validations_form.get('edad')?.dirty
+      || validations_form.get('edad')?.touched)"
+        >
+          <ion-icon name="information-circle-outline"></ion-icon> {{
+          validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--end validaciones edad-->
+
+    <div *ngIf="validations_form.get('edad')?.valid">
+      <div *ngIf="getIntEdad() >= 18">
+        <ion-item>
+          <ion-label position="floating" color="primary">DNI Alumno:</ion-label>
+          <ion-input type="text" formControlName="dni"></ion-input>
+        </ion-item>
+        <!--end dni-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.dni">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('dni')?.hasError(validation.type)
+          && (validations_form.get('dni')?.dirty
+          || validations_form.get('dni')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end validaciones dni-->
+
+        <ion-item>
+          <ion-label color="primary">Trabaja:</ion-label>
+          <ion-checkbox formControlName="trabaja"></ion-checkbox>
+        </ion-item>
+        <!--end trabaja-->
+
+        <ion-item>
+          <ion-label color="primary">EstadoCivil</ion-label>
+          <ion-label position="floating" color="primary"
+            >Estado civil</ion-label
+          >
+          <ion-select
+            formControlName="estadoCivil"
+            cancelText="Cancel"
+            okText="OK"
+          >
+            <ion-select-option
+              *ngFor="let estadoCivil of estadosCiviles"
+              [value]="estadoCivil"
+              >{{estadoCivil}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <!--end estadoCivil-->
+      </div>
+      <!--end mayorEdad-->
+
+      <div *ngIf="getIntEdad() < 18">
+        <ion-item>
+          <ion-label position="floating" color="primary">DNI Padre:</ion-label>
+          <ion-input type="text" formControlName="dniPadre"></ion-input>
+        </ion-item>
+        <!--end dniPadre-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.dniPadre">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('dniPadre')?.hasError(validation.type)
+          && (validations_form.get('dniPadre')?.dirty
+          || validations_form.get('dniPadre')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end validaciones dniPadre-->
+        <ion-item>
+          <ion-label position="floating" color="primary">DNI Madre:</ion-label>
+          <ion-input type="text" formControlName="dniMadre"></ion-input>
+        </ion-item>
+        <!--end dniMadre-->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.dniMadre">
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('dniMadre')?.hasError(validation.type)
+          && (validations_form.get('dniMadre')?.dirty
+          || validations_form.get('dniMadre')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end validaciones dniMadre-->
+
+        <ion-item>
+          <ion-label position="floating" color="primary"
+            >Apellidos Padre:</ion-label
+          >
+          <ion-input type="text" formControlName="apellidosPadre"></ion-input>
+        </ion-item>
+        <!--end apellidosPadre-->
+        <div class="validation-errors">
+          <ng-container
+            *ngFor="let validation of validation_messages.apellidosPadre"
+          >
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('apellidosPadre')?.hasError(validation.type)
+          && (validations_form.get('apellidosPadre')?.dirty
+          || validations_form.get('apellidosPadre')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end validaciones apellidosPadre-->
+
+        <ion-item>
+          <ion-label position="floating" color="primary"
+            >Apellidos Madre:</ion-label
+          >
+          <ion-input type="text" formControlName="apellidosMadre"></ion-input>
+        </ion-item>
+        <!--end apellidosMadre-->
+        <div class="validation-errors">
+          <ng-container
+            *ngFor="let validation of validation_messages.apellidosMadre"
+          >
+            <div
+              class="error-message"
+              *ngIf="validations_form.get('apellidosMadre')?.hasError(validation.type)
+          && (validations_form.get('apellidosMadre')?.dirty
+          || validations_form.get('apellidosMadre')?.touched)"
+            >
+              <ion-icon name="information-circle-outline"></ion-icon> {{
+              validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <!--end validaciones apellidosMadre-->
+      </div>
+      <!--end menorEdad-->
+    </div>
+    <!--end div según la edad-->
+    <ion-item>
+      <ion-button
+        color="primary"
+        class="submit-btn"
+        expand="block"
+        type="submit"
+        [disabled]="!validations_form.valid"
+      >
+        Submit data</ion-button
+      >
+    </ion-item>
+    <!--end button-->
+  </form>
+  <!--end form-->
+</ion-content>
