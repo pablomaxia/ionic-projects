@@ -2,6 +2,7 @@ import { EstadoCielo } from './../modelo/Interfaces';
 import { Component, OnInit } from '@angular/core';
 import { InterfacePrevisionDiariaMunicipio } from '../modelo/Interfaces';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,7 @@ export class HomePage implements OnInit {
         this.estadosCielo.push(data[0].prediccion.dia[1].estadoCielo[6]); // intervalo de las 18 a las 24
 
         console.log(this.estadosCielo);
+        console.log(moment.now.toString);
       })
       .catch((error: string) => {
         console.log(error);
