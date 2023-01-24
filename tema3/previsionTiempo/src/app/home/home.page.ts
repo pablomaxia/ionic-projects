@@ -20,6 +20,7 @@ export class HomePage implements OnInit {
       .getPrevisionDiariaMunicipio(this.municipio)
       .then((data: InterfacePrevisionDiariaMunicipio[]) => {
         // previsión para hoy
+        //if (data[0].prediccion.dia[0].fecha.getMilliseconds() < moment.now())
         this.estadosCielo.push(data[0].prediccion.dia[0].estadoCielo[3]); // intervalo de las 0 a las 6
         this.estadosCielo.push(data[0].prediccion.dia[0].estadoCielo[4]); // intervalo de las 7 a las 12
         this.estadosCielo.push(data[0].prediccion.dia[0].estadoCielo[5]); // intervalo de las 12 a las 18
@@ -31,7 +32,7 @@ export class HomePage implements OnInit {
         this.estadosCielo.push(data[0].prediccion.dia[1].estadoCielo[6]); // intervalo de las 18 a las 24
 
         console.log(this.estadosCielo);
-        console.log(moment.now.toString);
+        console.log(moment.now());
       })
       .catch((error: string) => {
         console.log(error);
