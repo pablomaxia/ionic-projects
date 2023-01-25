@@ -93,3 +93,9 @@ export interface InterfacePrevisionDiariaMunicipio {
   id: number;
   version: number;
 }
+
+export interface InterfaceMunicipio {
+  codProvincia: string;
+  codMunicipio: string;
+  municipio: string;
+}

@@ -1,3 +1,4 @@
+import { InterfaceMunicipio } from './../../modelo/Interfaces';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { InterfacePrevisionDiariaMunicipio } from 'src/app/modelo/Interfaces';
@@ -38,6 +39,22 @@ export class ApiServiceProvider {
     return promise;
   } //end_getPrevisionDiariaMunicipio
 
+  getMunicipios(): Promise<InterfaceMunicipio[]> {
+    let promise = new Promise<InterfaceMunicipio[]>((resolve, reject) => {
+      this.http
+        .get('../assets/json/municipios.json')
+        .toPromise()
+        .then((data: any) => {
+          // Success
+          resolve(data);
+        })
+        .catch((error: Error) => {
+          console.log(error.message);
+          reject(error.message);
+        });
+    });
+    return promise;
+  } //end_getMunicipios
   /*eliminarAlumno(id: number): Promise<Boolean> {
         let promise = new Promise<Boolean>((resolve, reject) => {
             this.http.delete(this.URL + "/alumnos/" + id).toPromise().then(

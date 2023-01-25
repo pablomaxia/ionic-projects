@@ -16,6 +16,8 @@ export class HomePage implements OnInit {
 
   constructor(private apiService: ApiServiceProvider) {}
   ngOnInit(): void {
+    this.apiService.getMunicipios();
+
     this.apiService
       .getPrevisionDiariaMunicipio(this.municipio)
       .then((data: InterfacePrevisionDiariaMunicipio[]) => {
@@ -37,5 +39,5 @@ export class HomePage implements OnInit {
       .catch((error: string) => {
         console.log(error);
       });
-  }
-}
+  } //end_ngOnInit
+} //end_class
