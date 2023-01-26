@@ -7,7 +7,6 @@ import { InterfacePrevisionDiariaMunicipio } from 'src/app/modelo/Interfaces';
 export class ApiServiceProvider {
   private URL: string =
     'https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/diaria/';
-  //private URL_MUNICIPIOS: string = 'https://localhost:3000/';
   private API_KEY: string =
     'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsby5tYXhpYS5yb2RyaWd1ZXouYWx1QGllc2p1bGlvdmVybmUuZXMiLCJqdGkiOiIxYmIyMTExMS1iZTE0LTRkNGItOWEyMS0xMWMwZmU5ZTgzMDkiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY3NDA3MjE4NiwidXNlcklkIjoiMWJiMjExMTEtYmUxNC00ZDRiLTlhMjEtMTFjMGZlOWU4MzA5Iiwicm9sZSI6IiJ9.4kpwTCiipV9R6GtCrnP7bBqyueYW-uM9iWmkGJB-J-8';
 
@@ -57,7 +56,7 @@ export class ApiServiceProvider {
     return promise;
   } //end_getMunicipios
 
-  busquedaMunicipios(cadena: string): Promise<InterfaceMunicipio[]> {
+  /*busquedaMunicipios(cadena: string): Promise<InterfaceMunicipio[]> {
     let promise = new Promise<InterfaceMunicipio[]>((resolve, reject) => {
       this.http
         .get('../assets/json/municipios.json')
@@ -78,7 +77,7 @@ export class ApiServiceProvider {
         });
     });
     return promise;
-  }
+  }*/
   //end busquedaAlumno
   /*eliminarAlumno(id: number): Promise<Boolean> {
         let promise = new Promise<Boolean>((resolve, reject) => {

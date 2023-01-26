@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { InterfacePrevisionDiariaMunicipio } from '../modelo/Interfaces';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 import * as moment from 'moment';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,18 @@ export class HomePage implements OnInit {
 
   public municipio: string = '41901';
 
-  constructor(private apiService: ApiServiceProvider) {}
+  constructor(
+    private apiService: ApiServiceProvider,
+    private activatedRoute: ActivatedRoute
+  ) {}
   ngOnInit(): void {
     //this.apiService.getMunicipios();
-
+    this.activatedRoute.queryParams.subscribe((params) => {
+      let municipioRecibido = JSON.parse(params['municipio']);
+      this.municipio =
+        municipioRecibido.codProvincia + municipioRecibido.codMunicipio; // Para formar el código completo
+      console.log(this.municipio);
+    });
     this.apiService
       .getPrevisionDiariaMunicipio(this.municipio)
       .then((data: InterfacePrevisionDiariaMunicipio[]) => {
@@ -34,7 +43,6 @@ export class HomePage implements OnInit {
         this.estadosCielo.push(data[0].prediccion.dia[1].estadoCielo[6]); // intervalo de las 18 a las 24
 
         console.log(this.estadosCielo);
-        console.log(moment.now());
       })
       .catch((error: string) => {
         console.log(error);

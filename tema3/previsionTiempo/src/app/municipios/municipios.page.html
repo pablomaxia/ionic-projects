@@ -6,14 +6,21 @@
 
 <ion-content>
   <ion-item>
-    <ion-input type="text" [value]="busqueda" />
-    <ion-button (click)="busquedaMunicipios(busqueda)">
+    <ion-input
+      placeholder="municipio"
+      type="text"
+      [(ngModel)]="municipioBuscar"
+    />
+    <ion-button (click)="buscaMunicipios()">
       <ion-icon slot="icon-only" name="search-circle"></ion-icon
     ></ion-button>
   </ion-item>
 
   <ion-list
-    ><ion-item *ngFor="let municipio of municipiosBuscados">
+    ><ion-item
+      *ngFor="let municipio of municipiosBuscados"
+      (click)="previsionMunicipioDiaria(municipio)"
+    >
       {{municipio.municipio}}
     </ion-item>
   </ion-list>
