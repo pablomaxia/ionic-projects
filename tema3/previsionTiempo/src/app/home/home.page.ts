@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
   constructor(private apiService: ApiServiceProvider) {}
   ngOnInit(): void {
-    this.apiService.getMunicipios();
+    //this.apiService.getMunicipios();
 
     this.apiService
       .getPrevisionDiariaMunicipio(this.municipio)

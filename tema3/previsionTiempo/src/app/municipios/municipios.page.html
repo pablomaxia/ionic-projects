@@ -5,8 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-list placeholder="Selecciona un municipio"
-    ><ion-item *ngFor="let municipio of municipios">
+  <ion-item>
+    <ion-input type="text" [value]="busqueda" />
+    <ion-button (click)="busquedaMunicipios(busqueda)">
+      <ion-icon slot="icon-only" name="search-circle"></ion-icon
+    ></ion-button>
+  </ion-item>
+
+  <ion-list
+    ><ion-item *ngFor="let municipio of municipiosBuscados">
       {{municipio.municipio}}
     </ion-item>
   </ion-list>

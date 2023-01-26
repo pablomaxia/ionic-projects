@@ -9,8 +9,28 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
 })
 export class MunicipiosPage implements OnInit {
   public municipios: InterfaceMunicipio[] = new Array();
+  public municipiosBuscados: InterfaceMunicipio[] = new Array();
+
+  public busqueda: string;
+
   constructor(private apiService: ApiServiceProvider) {}
   ngOnInit(): void {
+    this.busquedaMunicipios(this.busqueda);
+  } //end_ngOnInit
+
+  busquedaMunicipios(cadena: string) {
+    this.apiService
+      .busquedaMunicipios(cadena)
+      .then((data: InterfaceMunicipio[]) => {
+        console.log(data);
+        this.municipiosBuscados = data;
+      })
+      .catch((error: string) => {
+        console.log(error);
+      });
+  } //end_busquedaMunicipios
+
+  getMunicipios() {
     this.apiService
       .getMunicipios()
       .then((data: InterfaceMunicipio[]) => {
@@ -20,5 +40,5 @@ export class MunicipiosPage implements OnInit {
       .catch((error: string) => {
         console.log(error);
       });
-  } //end_ngOnInit
+  } //end_getMunicipios
 } //end_class
