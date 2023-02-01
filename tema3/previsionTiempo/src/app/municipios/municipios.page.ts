@@ -18,24 +18,19 @@ export class MunicipiosPage implements OnInit {
     private apiService: ApiServiceProvider,
     private navCtrl: NavController
   ) {}
-  ngOnInit(): void {
-    this.getMunicipios();
-  } //end_ngOnInit
 
-  getMunicipios() {
-    this.municipios = new Array();
+  ngOnInit(): void {
     this.apiService
       .getMunicipios()
       .then((data: InterfaceMunicipio[]) => {
-        console.log(data[0].municipio);
         this.municipios = data;
       })
       .catch((error: string) => {
         console.log(error);
       });
-  } //end_getMunicipios
+  } //end_ngOnInit
 
-  buscaMunicipios() {
+  buscarMunicipio() {
     if (this.municipioBuscar.trim() == '') {
       this.municipiosBuscados = new Array();
       return;
@@ -45,20 +40,19 @@ export class MunicipiosPage implements OnInit {
       if (
         municipio.municipio
           .toUpperCase()
-          .startsWith(this.municipioBuscar.toUpperCase())
+          .startsWith(this.municipioBuscar.trim().toUpperCase())
       ) {
         this.municipiosBuscados.push(municipio);
       }
     });
-    console.log(this.municipiosBuscados);
-  } //end_busquedaMunicipios
+  }
 
-  previsionMunicipioDiaria(municipio: InterfaceMunicipio) {
+  municipioClick(municipio: InterfaceMunicipio) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         municipio: JSON.stringify(municipio),
       },
     };
     this.navCtrl.navigateForward('/home', navigationExtras);
-  } //end_previsionMunicipioDiaria
+  }
 } //end_class

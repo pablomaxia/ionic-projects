@@ -14,47 +14,42 @@ export class ApiServiceProvider {
   getPrevisionDiariaMunicipio(
     municipio: string
   ): Promise<InterfacePrevisionDiariaMunicipio[]> {
-    let promise = new Promise<InterfacePrevisionDiariaMunicipio[]>(
-      (resolve, reject) => {
-        this.http
-          .get(this.URL + municipio + '/?api_key=' + this.API_KEY)
-          .toPromise()
-          .then((data: any) => {
-            this.http
-              .get(data['datos'])
-              .toPromise()
-              .then((data: any) => {
-                console.log(data);
-                resolve(data);
-              })
-              .catch((error: Error) => {
-                reject(error.message);
-              });
-          })
-          .catch((error: Error) => {
-            reject(error.message);
-          });
-      }
-    );
-    return promise;
-  } //end_getPrevisionDiariaMunicipio
-
-  getMunicipios(): Promise<InterfaceMunicipio[]> {
-    let promise = new Promise<InterfaceMunicipio[]>((resolve, reject) => {
+    let promise = new Promise<any>((resolve, reject) => {
       this.http
-        .get('../assets/json/municipios.json')
+        .get(this.URL + municipio + '/?api_key=' + this.API_KEY)
         .toPromise()
         .then((data: any) => {
-          // Success
-          resolve(data);
+          this.http
+            .get(data['datos'])
+            .toPromise()
+            .then((data: any) => {
+              resolve(data);
+            })
+            .catch((error: Error) => {
+              reject(error.message);
+            });
         })
         .catch((error: Error) => {
-          console.log(error.message);
           reject(error.message);
         });
     });
     return promise;
-  } //end_getMunicipios
+  } //end_getPrevisionDiariaMunicipio
+
+  getMunicipios(): Promise<any> {
+    let promise = new Promise<InterfaceMunicipio[]>((resolve, reject) => {
+      this.http
+        .get('./assets/json/municipios.json')
+        .toPromise()
+        .then((data: any) => {
+          resolve(data);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    });
+    return promise;
+  }
 
   /*busquedaMunicipios(cadena: string): Promise<InterfaceMunicipio[]> {
     let promise = new Promise<InterfaceMunicipio[]>((resolve, reject) => {
