@@ -16,15 +16,15 @@ export class HomePage implements OnInit {
 
   constructor(private apiService: ApiServiceProvider) {}
 
-  ngOnInit(): void {
-    this.getGrupos();
+  async ngOnInit() {
+    this.grupos = await this.apiService.getGrupos();
     for (const grupo of this.grupos) {
-      this.getAlumnosGrupo(grupo.id);
+      grupo.alumnos = await this.apiService.getAlumnosGrupo(grupo.id);
     }
   } //end_ngOnInit
 
-  getAlumnosGrupo(idGrupo: number) {
-    this.apiService
+  async getAlumnosGrupo(idGrupo: number) {
+    await this.apiService
       .getAlumnosGrupo(idGrupo)
       .then((alumnos: Alumno[]) => {
         this.alumnos = alumnos;
@@ -34,6 +34,18 @@ export class HomePage implements OnInit {
         console.log(error);
       });
   }
+  async getGrupos() {
+    await this.apiService
+      .getGrupos()
+      .then(async (grupos: Grupo[]) => {
+        this.grupos = grupos;
+        console.log(this.grupos);
+      })
+      .catch((error: string) => {
+        console.log(error);
+      });
+  } //end_getGrupos
+
   getAlumnos() {
     this.apiService
       .getAlumnos()
@@ -45,16 +57,4 @@ export class HomePage implements OnInit {
         console.log(error);
       });
   } //end_getAlumnos
-
-  getGrupos() {
-    this.apiService
-      .getGrupos()
-      .then((grupos: Grupo[]) => {
-        this.grupos = grupos;
-        console.log(this.grupos);
-      })
-      .catch((error: string) => {
-        console.log(error);
-      });
-  } //end_getGrupos
 } //end_class

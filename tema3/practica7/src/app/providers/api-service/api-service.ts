@@ -8,7 +8,7 @@ export class ApiServiceProvider {
 
   constructor(public http: HttpClient) {}
 
-  getAlumnos(): Promise<Alumno[]> {
+  async getAlumnos(): Promise<Alumno[]> {
     let promise = new Promise<Alumno[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/alumnos')
@@ -27,17 +27,16 @@ export class ApiServiceProvider {
     return promise;
   } //end_getAlumnos
 
-  getGrupos(): Promise<Grupo[]> {
+  async getGrupos(): Promise<Grupo[]> {
     let promise = new Promise<Grupo[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/grupos')
         .toPromise()
         .then((data: any) => {
-          let grupos = new Array<Grupo>();
-          data.forEach((grupo: Grupo) => {
-            grupos.push(grupo);
+          data = data.map((g: any) => {
+            return new Grupo(g);
           });
-          resolve(grupos);
+          resolve(data);
         })
         .catch((error: Error) => {
           reject(error.message);
@@ -46,36 +45,16 @@ export class ApiServiceProvider {
     return promise;
   } //end_getGrupos
 
-  getGrupoId(idGrupo: number): Promise<Grupo[]> {
-    let promise = new Promise<Grupo[]>((resolve, reject) => {
-      this.http
-        .get(this.URL + '/grupos/' + idGrupo)
-        .toPromise()
-        .then((data: any) => {
-          let grupos = new Array<Grupo>();
-          data.forEach((grupo: Grupo) => {
-            grupos.push(grupo);
-          });
-          resolve(grupos);
-        })
-        .catch((error: Error) => {
-          reject(error.message);
-        });
-    });
-    return promise;
-  } //end_getGrupoId
-
-  getAlumnosGrupo(idGrupo: number) {
+  async getAlumnosGrupo(idGrupo: number) {
     let promise = new Promise<Alumno[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/alumnos/?idGrupo=' + idGrupo)
         .toPromise()
         .then((data: any) => {
-          let alumnos = new Array<Alumno>();
-          data.forEach((alumno: Alumno) => {
-            alumnos.push(alumno);
+          data = data.map((a: any) => {
+            return new Alumno(a);
           });
-          resolve(alumnos);
+          resolve(data);
         })
         .catch((error: Error) => {
           reject(error.message);

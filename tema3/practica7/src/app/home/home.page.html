@@ -11,14 +11,15 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <ion-list>
-      <ion-item *ngFor="let grupo of grupos">
+  <ion-content [fullscreen]="true">
+    <div *ngFor="let grupo of grupos">
+      <ion-list>
         <h1>{{grupo.grupo}}</h1>
-        <ion-item *ngFor="let alumnoGrupo of alumnos">
-          {{alumnoGrupo.first_name}} {{alumnoGrupo.last_name}}</ion-item
-        >
-      </ion-item>
-    </ion-list>
-  </div>
+        <hr />
+        <ion-item *ngFor="let alumno of grupo.alumnos">
+          <ion-label>{{alumno.first_name + " " + alumno.last_name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
 </ion-content>
