@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Alumno, Grupo, AlumnoGrupo } from 'src/app/modelo/Interfaces';
+import { Alumno } from 'src/app/modelo/Alumno';
+import { Grupo } from 'src/app/modelo/Grupo';
 
 @Injectable()
 export class ApiServiceProvider {
@@ -8,7 +9,7 @@ export class ApiServiceProvider {
 
   constructor(public http: HttpClient) {}
 
-  async getAlumnos(): Promise<Alumno[]> {
+  getAlumnos(): Promise<Alumno[]> {
     let promise = new Promise<Alumno[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/alumnos')
@@ -27,16 +28,17 @@ export class ApiServiceProvider {
     return promise;
   } //end_getAlumnos
 
-  async getGrupos(): Promise<Grupo[]> {
+  getGrupos(): Promise<Grupo[]> {
     let promise = new Promise<Grupo[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/grupos')
         .toPromise()
         .then((data: any) => {
-          data = data.map((g: any) => {
-            return new Grupo(g);
+          let grupos = new Array<Grupo>();
+          data.forEach((grupo: Grupo) => {
+            grupos.push(grupo);
           });
-          resolve(data);
+          resolve(grupos);
         })
         .catch((error: Error) => {
           reject(error.message);
@@ -45,16 +47,17 @@ export class ApiServiceProvider {
     return promise;
   } //end_getGrupos
 
-  async getAlumnosGrupo(idGrupo: number) {
+  getAlumnosGrupo(idGrupo: number) {
     let promise = new Promise<Alumno[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/alumnos/?idGrupo=' + idGrupo)
         .toPromise()
         .then((data: any) => {
-          data = data.map((a: any) => {
-            return new Alumno(a);
+          let alumnos = new Array<Alumno>();
+          data.forEach((alumno: Alumno) => {
+            alumnos.push(alumno);
           });
-          resolve(data);
+          resolve(alumnos);
         })
         .catch((error: Error) => {
           reject(error.message);

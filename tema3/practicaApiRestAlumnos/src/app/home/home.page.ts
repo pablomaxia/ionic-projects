@@ -91,6 +91,112 @@ Si se pulsa cancelar en el activity se devuelve null.
     return await modal.present();
   } //end_modificarAlumno
 
+  /*
+
+  este método comentado permite modificar los datos del alumno mediante un alertController
+
+  */
+
+  async modificarAlumnoConAlert(indice: number) {
+    let alumno = this.alumnos[indice];
+
+    const alert = await this.alertController.create({
+      header: 'Modificar',
+      inputs: [
+        {
+          name: 'first_name',
+          type: 'text',
+          value: alumno.first_name,
+          placeholder: 'first_name',
+        },
+        {
+          name: 'last_name',
+          type: 'text',
+          id: 'last_name',
+          value: alumno.last_name,
+          placeholder: 'last_name',
+        },
+        {
+          name: 'email',
+          id: 'email',
+          type: 'text',
+          value: alumno.email,
+          placeholder: 'email',
+        },
+        {
+          name: 'gender',
+          id: 'gender',
+          type: 'text',
+          value: alumno.gender,
+          placeholder: 'gender',
+        },
+        {
+          name: 'avatar',
+          value: alumno.avatar,
+          type: 'url',
+          placeholder: 'avatar',
+        },
+        {
+          name: 'address',
+          value: alumno.address,
+          type: 'text',
+          placeholder: 'address',
+        },
+        {
+          name: 'city',
+          value: alumno.city,
+          type: 'text',
+          placeholder: 'city',
+        },
+        {
+          name: 'postalCode',
+          value: alumno.postalCode,
+          type: 'text',
+          placeholder: 'postalCode',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          },
+        },
+        {
+          text: 'Ok',
+          handler: (data) => {
+            console.log(data);
+            var alumnoModificado: Alumno = new Alumno(
+              alumno.id,
+              data['gender'],
+              data['first_name'],
+              data['last_name'],
+              data['email'],
+              data['avatar'],
+              data['address'],
+              data['city'],
+              data['postalCode']
+            );
+
+            this.apiService
+              .modificarAlumno(alumnoModificado)
+              .then((alumno: Alumno) => {
+                this.alumnos[indice] = alumno;
+              })
+              .catch((error: string) => {
+                console.log(error);
+              });
+            console.log('Confirm Ok');
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  } //end_modificarAlumnoConAlert
+
   paginaAnterior() {
     this.numPagina--;
     this.getAlumnosPaginado();

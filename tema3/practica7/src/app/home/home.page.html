@@ -12,14 +12,18 @@
   </ion-header>
 
   <ion-content [fullscreen]="true">
-    <div *ngFor="let grupo of grupos">
-      <ion-list>
-        <h1>{{grupo.grupo}}</h1>
+    <ion-list>
+      <div *ngFor="let alumnoGrupo of alumnosGrupo">
+        <ion-card>
+          <b style="color: rgb(15, 13, 13); font-size: 40px"
+            >{{alumnoGrupo.grupo.grupo}}</b
+          >
+        </ion-card>
         <hr />
-        <ion-item *ngFor="let alumno of grupo.alumnos">
+        <ion-item *ngFor="let alumno of alumnoGrupo.alumnos">
           <ion-label>{{alumno.first_name + " " + alumno.last_name}}</ion-label>
         </ion-item>
-      </ion-list>
-    </div>
+      </div>
+    </ion-list>
   </ion-content>
 </ion-content>
