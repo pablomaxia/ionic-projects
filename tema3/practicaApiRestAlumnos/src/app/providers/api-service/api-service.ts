@@ -155,7 +155,7 @@ export class ApiServiceProvider {
   insertarAlumno(datosNuevoAlumno: Alumno): Promise<Alumno> {
     let promise = new Promise<Alumno>((resolve, reject) => {
       var header = { headers: { 'Content-Type': 'application/json' } };
-      delete datosNuevoAlumno.id; //cuando se hace un post no paso el id. El id es asignado por el servidor. Quito el atributo del objeto json
+      //delete datosNuevoAlumno.id; //cuando se hace un post no paso el id. El id es asignado por el servidor. Quito el atributo del objeto json
       let datos = JSON.stringify(datosNuevoAlumno);
       this.http
         .post(this.URL + '/alumnos/', datos, header)
@@ -163,7 +163,6 @@ export class ApiServiceProvider {
         .then((data: any) => {
           // Success
           let alumno: Alumno;
-          //alumno = JSON.parse(data);
           alumno = data;
           resolve(alumno);
         })

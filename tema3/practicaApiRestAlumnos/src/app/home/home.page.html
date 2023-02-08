@@ -1,12 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title> Alumnos </ion-title>
-    <ion-item>
-      <ion-button (click)="busquedaAlumno()">
-        <ion-icon slot="icon-only" name="search-circle"></ion-icon></ion-button
-    ></ion-item>
-    <!--end búsqueda-->
     <ion-buttons slot="end">
+      <ion-button (click)="busquedaAlumno()">
+        <ion-icon slot="icon-only" name="search-circle"></ion-icon
+      ></ion-button>
+      <!--end búsqueda-->
       <ion-button (click)="nuevoAlumno()">
         <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
       </ion-button>
