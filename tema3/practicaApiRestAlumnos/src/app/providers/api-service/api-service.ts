@@ -151,4 +151,26 @@ export class ApiServiceProvider {
     return promise;
   }
   //end busquedaAlumno
+
+  insertarAlumno(datosNuevoAlumno: Alumno): Promise<Alumno> {
+    let promise = new Promise<Alumno>((resolve, reject) => {
+      var header = { headers: { 'Content-Type': 'application/json' } };
+      delete datosNuevoAlumno.id; //cuando se hace un post no paso el id. El id es asignado por el servidor. Quito el atributo del objeto json
+      let datos = JSON.stringify(datosNuevoAlumno);
+      this.http
+        .post(this.URL + '/alumnos/', datos, header)
+        .toPromise()
+        .then((data: any) => {
+          // Success
+          let alumno: Alumno;
+          //alumno = JSON.parse(data);
+          alumno = data;
+          resolve(alumno);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    });
+    return promise;
+  } //end_insertarAlumno
 } //end_class

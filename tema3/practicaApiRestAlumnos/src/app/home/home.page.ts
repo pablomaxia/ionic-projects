@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 import { Alumno } from '../modelo/Alumno';
-import { AlertController, ModalController } from '@ionic/angular';
+import {
+  AlertController,
+  ModalController,
+  ToastController,
+} from '@ionic/angular';
 import { EditarAlumnoPage } from '../editar-alumno/editar-alumno.page';
 
 @Component({
@@ -22,8 +26,41 @@ export class HomePage implements OnInit {
   constructor(
     private apiService: ApiServiceProvider,
     public alertController: AlertController,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public toastController: ToastController /*private storage: Storage,*/
   ) {}
+
+  paginaAnterior() {
+    this.numPagina--;
+    this.getAlumnosPaginado();
+  }
+  //end_paginaAnterior
+
+  paginaSiguiente() {
+    this.numPagina++;
+    this.getAlumnosPaginado();
+  }
+  //end_paginaSiguiente
+
+  paginaInicio() {
+    this.numPagina = 1;
+    this.getAlumnosPaginado();
+  }
+  //end_paginaInicio
+
+  ordenarPorApellido(alumnos: Alumno[]): Alumno[] {
+    return alumnos.sort((a, b) => a.last_name!!.localeCompare(b.last_name!!));
+  } //end_ordenarPorApellido
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+
+      duration: 2000,
+    });
+
+    toast.present();
+  } //end_presentToast
 
   /*
 
@@ -49,7 +86,7 @@ Si el borrado ha ido mal muestro por consola el error que ha ocurrido.
 
   eliminarAlumno(indice: number) {
     this.apiService
-      .eliminarAlumno(this.alumnos[indice].id)
+      .eliminarAlumno(this.alumnos[indice].id!!)
       .then((correcto: Boolean) => {
         console.log('Borrado correcto del alumno con indice: ' + indice);
         this.alumnos.splice(indice, 1);
@@ -197,24 +234,6 @@ Si se pulsa cancelar en el activity se devuelve null.
     await alert.present();
   } //end_modificarAlumnoConAlert
 
-  paginaAnterior() {
-    this.numPagina--;
-    this.getAlumnosPaginado();
-  }
-  //end_paginaAnterior
-
-  paginaSiguiente() {
-    this.numPagina++;
-    this.getAlumnosPaginado();
-  }
-  //end_paginaSiguiente
-
-  paginaInicio() {
-    this.numPagina = 1;
-    this.getAlumnosPaginado();
-  }
-  //end_paginaInicio
-
   getAlumnosPaginado() {
     this.apiService
       .getAlumnosPaginado(
@@ -277,8 +296,8 @@ Si se pulsa cancelar en el activity se devuelve null.
             }
             this.apiService
               .busquedaAlumno(
-                this.first_name_busqueda,
                 this.last_name_busqueda,
+                this.first_name_busqueda,
                 this.CAMPO_ORDENAR,
                 this.ORDEN
               )
@@ -299,7 +318,38 @@ Si se pulsa cancelar en el activity se devuelve null.
   }
   //end busquedaAlumno
 
-  ordenarPorApellido(alumnos: Alumno[]): Alumno[] {
-    return alumnos.sort((a, b) => a.last_name.localeCompare(b.last_name));
-  }
+  /*
+este método pasa a un activity abierto en modal objeto alumno recién creado.
+El activity tiene un formulario para editar los datos.
+Si los datos son válidos y se pulsa aceptar en el activity se devuelve el objeto alumno con los datos nuevos.
+En este caso se añade el nuevo objeto alumno al array.
+Si se pulsa cancelar en el activity se devuelve null.
+*/
+
+  async nuevoAlumno() {
+    const modal = await this.modalController.create({
+      component: EditarAlumnoPage,
+      componentProps: {
+        alumnoJson: JSON.stringify(
+          new Alumno(null, null, null, null, null, null, null, null, null)
+        ),
+      },
+    });
+
+    modal.onDidDismiss().then((dataNuevoAlumno) => {
+      let nuevoAlumno: Alumno = dataNuevoAlumno['data'];
+      if (nuevoAlumno != null) {
+        this.apiService
+          .insertarAlumno(nuevoAlumno)
+          .then((alumno: Alumno) => {
+            this.alumnos.push(alumno); //si se ha insertado en la api se añade en la lista
+          })
+          .catch((error: string) => {
+            console.log(error);
+            this.presentToast('Error al insertar: ' + error);
+          });
+      }
+    });
+    return await modal.present();
+  } //end_nuevoAlumno
 } //end_class

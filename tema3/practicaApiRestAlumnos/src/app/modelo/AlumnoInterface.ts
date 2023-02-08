@@ -1,11 +1,11 @@
 export interface AlumnoInterface {
-  id: number;
-  gender: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  avatar: string;
-  address: string;
-  city: string;
-  postalCode: string;
+  id?: number | null;
+  gender?: string | null;
+  first_name?: string | null;
+  last_name?: string | null;
+  email?: string | null;
+  avatar?: string | null;
+  address?: string | null;
+  city?: string | null;
+  postalCode?: string | null;
 }

@@ -2,14 +2,14 @@ import { AlumnoInterface } from './AlumnoInterface';
 
 export class Alumno implements AlumnoInterface {
   constructor(
-    public id: number,
-    public gender: string,
-    public first_name: string,
-    public last_name: string,
-    public email: string,
-    public avatar: string,
-    public address: string,
-    public city: string,
-    public postalCode: string
+    public id?: number | null,
+    public gender?: string | null,
+    public first_name?: string | null,
+    public last_name?: string | null,
+    public email?: string | null,
+    public avatar?: string | null,
+    public address?: string | null,
+    public city?: string | null,
+    public postalCode?: string | null
   ) {}
 }
