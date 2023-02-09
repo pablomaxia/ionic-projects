@@ -5,5 +5,40 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-select
+    cancelText="Cancelar"
+    okText="OK"
+    placeholder="Seleccione un cliente"
+  >
+    <ion-select-option *ngFor="let cliente of clientes" [value]="cliente">
+      {{cliente.cliente}}
+    </ion-select-option>
+  </ion-select>
+  <!--end_ion-select-->
+  <ion-list>
+    <ion-item *ngFor="let producto of factura.productos">
+      <ion-label
+        >{{producto.descripcion}} {{producto.importeUnitario}}
+        {{producto.unidades}} {{producto.importeUnitario * producto.unidades}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <!--end_productos factura-->
+  <ion-item>Importe total sin IVA: {{importeTotal(factura,false)}}</ion-item>
+  <!--end_importe sin iva-->
+  <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
+  <!--end_iva-->
+  <ion-item>Importe total con IVA: {{importeTotal(factura,true)}}</ion-item>
+  <!--end_importe con iva-->
+  <ion-item>
+    <ion-button (click)="anadirProductosFactura()"
+      >Añadir Productos Factura</ion-button
+    >
+  </ion-item>
+  <!--end_botón añadir productos-->
+  <ion-item>
+    <ion-button (click)="crearFactura()">Aceptar</ion-button>
+    <!--end botón aceptar-->
+  </ion-item>
+  <!--end_buttons-->
 </ion-content>

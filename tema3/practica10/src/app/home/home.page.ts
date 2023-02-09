@@ -19,7 +19,6 @@ export class HomePage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.getClientes();
     this.getFacturas();
   }
 
@@ -45,7 +44,7 @@ export class HomePage implements OnInit {
       .catch((error: string) => {
         console.log(error);
       });
-  } //end_getClientes
+  } //end_getFacturas
 
   public importeTotal(factura: Factura): number {
     let total: number = 0;
@@ -56,7 +55,7 @@ export class HomePage implements OnInit {
     });
     total *= factura.porcentajeIva;
 
-    return total;
+    return Math.round(total);
   } // end_importeTotal
 
   crearFactura() {

@@ -2,6 +2,7 @@ import { Factura } from './../../modelo/Factura';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/modelo/Cliente';
+import { ProductoFactura } from 'src/app/modelo/ProductoFactura';
 
 @Injectable()
 export class ApiServiceProvider {
@@ -48,4 +49,45 @@ export class ApiServiceProvider {
 
     return promise;
   } //end_getFacturas
+
+  getProductosFactura(): Promise<ProductoFactura[]> {
+    let promise = new Promise<ProductoFactura[]>((resolve, reject) => {
+      this.http
+        .get(this.URL + '/productos')
+        .toPromise()
+        .then((data: any) => {
+          let productos = new Array<ProductoFactura>();
+          data.forEach((producto: ProductoFactura) => {
+            productos.push(producto);
+          });
+          resolve(productos);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    }); // end_getProductosFactura
+
+    return promise;
+  }
+
+  insertarFactura(datosNuevaFactura: Factura): Promise<Factura> {
+    let promise = new Promise<Factura>((resolve, reject) => {
+      var header = { headers: { 'Content-Type': 'application/json' } };
+      let datos = JSON.stringify(datosNuevaFactura);
+      this.http
+        .post(this.URL + '/facturas/', datos, header)
+        .toPromise()
+        .then((data: any) => {
+          // Success
+          let factura: Factura;
+          factura = data;
+          resolve(factura);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    });
+    return promise;
+  }
+  //end_insertarFactura
 }
