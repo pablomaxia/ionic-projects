@@ -7,7 +7,7 @@
       "productos": [
         {
           "descripcion": "Wine - Guy Sage Touraine",
-          "importeUnitario": 85.0,
+          "importeUnitario": 85,
           "unidades": 4
         },
         {
@@ -141,7 +141,7 @@
         },
         {
           "descripcion": "Water - Perrier",
-          "importeUnitario": 66.0,
+          "importeUnitario": 66,
           "unidades": 5
         },
         {
@@ -231,7 +231,11 @@
           "importeUnitario": 91.93,
           "unidades": 11
         },
-        { "descripcion": "Pastrami", "importeUnitario": 78.78, "unidades": 1 },
+        {
+          "descripcion": "Pastrami",
+          "importeUnitario": 78.78,
+          "unidades": 1
+        },
         {
           "descripcion": "Huck Towels White",
           "importeUnitario": 94.28,
@@ -281,7 +285,7 @@
         },
         {
           "descripcion": "Bread - Rolls, Corn",
-          "importeUnitario": 32.0,
+          "importeUnitario": 32,
           "unidades": 11
         },
         {
@@ -540,7 +544,11 @@
           "importeUnitario": 55.94,
           "unidades": 19
         },
-        { "descripcion": "Dates", "importeUnitario": 15.15, "unidades": 19 },
+        {
+          "descripcion": "Dates",
+          "importeUnitario": 15.15,
+          "unidades": 19
+        },
         {
           "descripcion": "Juice - Cranberry, 341 Ml",
           "importeUnitario": 82.01,
@@ -593,7 +601,11 @@
           "importeUnitario": 85.42,
           "unidades": 7
         },
-        { "descripcion": "Foil Wrap", "importeUnitario": 67.58, "unidades": 5 },
+        {
+          "descripcion": "Foil Wrap",
+          "importeUnitario": 67.58,
+          "unidades": 5
+        },
         {
           "descripcion": "Nantucket - Kiwi Berry Cktl.",
           "importeUnitario": 77.5,
@@ -833,7 +845,11 @@
           "importeUnitario": 39.08,
           "unidades": 14
         },
-        { "descripcion": "Relish", "importeUnitario": 94.51, "unidades": 12 }
+        {
+          "descripcion": "Relish",
+          "importeUnitario": 94.51,
+          "unidades": 12
+        }
       ]
     },
     {
@@ -841,7 +857,11 @@
       "cliente": "Camido",
       "porcentajeIva": 1,
       "productos": [
-        { "descripcion": "Sardines", "importeUnitario": 77.73, "unidades": 9 },
+        {
+          "descripcion": "Sardines",
+          "importeUnitario": 77.73,
+          "unidades": 9
+        },
         {
           "descripcion": "Blackberries",
           "importeUnitario": 61.51,
@@ -941,7 +961,7 @@
         },
         {
           "descripcion": "Cheese - Cheddar With Claret",
-          "importeUnitario": 58.0,
+          "importeUnitario": 58,
           "unidades": 14
         },
         {
@@ -959,7 +979,11 @@
           "importeUnitario": 83.6,
           "unidades": 20
         },
-        { "descripcion": "Papayas", "importeUnitario": 29.69, "unidades": 17 },
+        {
+          "descripcion": "Papayas",
+          "importeUnitario": 29.69,
+          "unidades": 17
+        },
         {
           "descripcion": "Oregano - Fresh",
           "importeUnitario": 14.95,
@@ -1279,7 +1303,11 @@
           "importeUnitario": 62.38,
           "unidades": 6
         },
-        { "descripcion": "Remy Red", "importeUnitario": 32.13, "unidades": 12 },
+        {
+          "descripcion": "Remy Red",
+          "importeUnitario": 32.13,
+          "unidades": 12
+        },
         {
           "descripcion": "Snapple - Iced Tea Peach",
           "importeUnitario": 91.93,
@@ -1367,7 +1395,11 @@
           "importeUnitario": 59.96,
           "unidades": 12
         },
-        { "descripcion": "Sardines", "importeUnitario": 22.75, "unidades": 11 },
+        {
+          "descripcion": "Sardines",
+          "importeUnitario": 22.75,
+          "unidades": 11
+        },
         {
           "descripcion": "Yeast Dry - Fermipan",
           "importeUnitario": 40.44,
@@ -1393,7 +1425,11 @@
           "importeUnitario": 9.31,
           "unidades": 16
         },
-        { "descripcion": "Parsnip", "importeUnitario": 72.85, "unidades": 3 },
+        {
+          "descripcion": "Parsnip",
+          "importeUnitario": 72.85,
+          "unidades": 3
+        },
         {
           "descripcion": "Bread - Ciabatta Buns",
           "importeUnitario": 50.98,
@@ -1535,7 +1571,11 @@
           "importeUnitario": 32.13,
           "unidades": 18
         },
-        { "descripcion": "Eel Fresh", "importeUnitario": 65.6, "unidades": 9 },
+        {
+          "descripcion": "Eel Fresh",
+          "importeUnitario": 65.6,
+          "unidades": 9
+        },
         {
           "descripcion": "Wasabi Powder",
           "importeUnitario": 39.67,
@@ -1742,7 +1782,11 @@
           "importeUnitario": 42.43,
           "unidades": 9
         },
-        { "descripcion": "Pastrami", "importeUnitario": 77.37, "unidades": 12 },
+        {
+          "descripcion": "Pastrami",
+          "importeUnitario": 77.37,
+          "unidades": 12
+        },
         {
           "descripcion": "Duck - Legs",
           "importeUnitario": 46.94,
@@ -1820,7 +1864,11 @@
           "importeUnitario": 20.23,
           "unidades": 17
         },
-        { "descripcion": "Papayas", "importeUnitario": 29.08, "unidades": 12 },
+        {
+          "descripcion": "Papayas",
+          "importeUnitario": 29.08,
+          "unidades": 12
+        },
         {
           "descripcion": "Cheese - Woolwich Goat, Log",
           "importeUnitario": 87.99,
@@ -1885,7 +1933,11 @@
           "importeUnitario": 50.08,
           "unidades": 6
         },
-        { "descripcion": "Kiwi", "importeUnitario": 13.25, "unidades": 8 },
+        {
+          "descripcion": "Kiwi",
+          "importeUnitario": 13.25,
+          "unidades": 8
+        },
         {
           "descripcion": "Bread - Roll, Whole Wheat",
           "importeUnitario": 65.07,
@@ -1936,7 +1988,11 @@
           "importeUnitario": 73.13,
           "unidades": 14
         },
-        { "descripcion": "Lychee", "importeUnitario": 53.62, "unidades": 14 },
+        {
+          "descripcion": "Lychee",
+          "importeUnitario": 53.62,
+          "unidades": 14
+        },
         {
           "descripcion": "Cheese - Cheddarsliced",
           "importeUnitario": 18.7,
@@ -1984,7 +2040,11 @@
           "importeUnitario": 18.3,
           "unidades": 12
         },
-        { "descripcion": "Glucose", "importeUnitario": 38.75, "unidades": 14 },
+        {
+          "descripcion": "Glucose",
+          "importeUnitario": 38.75,
+          "unidades": 14
+        },
         {
           "descripcion": "Water - Tonic",
           "importeUnitario": 66.87,
@@ -2010,7 +2070,11 @@
           "importeUnitario": 92.87,
           "unidades": 9
         },
-        { "descripcion": "Remy Red", "importeUnitario": 35.66, "unidades": 14 },
+        {
+          "descripcion": "Remy Red",
+          "importeUnitario": 35.66,
+          "unidades": 14
+        },
         {
           "descripcion": "Artichoke - Bottom, Canned",
           "importeUnitario": 81.84,
@@ -2197,7 +2261,11 @@
           "importeUnitario": 66.81,
           "unidades": 8
         },
-        { "descripcion": "Isomalt", "importeUnitario": 67.15, "unidades": 14 },
+        {
+          "descripcion": "Isomalt",
+          "importeUnitario": 67.15,
+          "unidades": 14
+        },
         {
           "descripcion": "Beer - Upper Canada Lager",
           "importeUnitario": 4.04,
@@ -2215,7 +2283,11 @@
           "importeUnitario": 71.81,
           "unidades": 8
         },
-        { "descripcion": "Guava", "importeUnitario": 20.39, "unidades": 9 },
+        {
+          "descripcion": "Guava",
+          "importeUnitario": 20.39,
+          "unidades": 9
+        },
         {
           "descripcion": "French Pastry - Mini Chocolate",
           "importeUnitario": 21.4,
@@ -2844,7 +2916,7 @@
         },
         {
           "descripcion": "Mikes Hard Lemonade",
-          "importeUnitario": 83.0,
+          "importeUnitario": 83,
           "unidades": 3
         },
         {
@@ -3010,16 +3082,46 @@
     }
   ],
   "clientes": [
-    { "id": 1, "cliente": "Livetube" },
-    { "id": 2, "cliente": "Cogidoo" },
-    { "id": 3, "cliente": "Vimbo" },
-    { "id": 4, "cliente": "Brainlounge" },
-    { "id": 5, "cliente": "Eire" },
-    { "id": 6, "cliente": "Eimbee" },
-    { "id": 7, "cliente": "Shufflester" },
-    { "id": 8, "cliente": "Buzzdog" },
-    { "id": 9, "cliente": "Trunyx" },
-    { "id": 10, "cliente": "Meeveo" }
+    {
+      "id": 1,
+      "cliente": "Livetube"
+    },
+    {
+      "id": 2,
+      "cliente": "Cogidoo"
+    },
+    {
+      "id": 3,
+      "cliente": "Vimbo"
+    },
+    {
+      "id": 4,
+      "cliente": "Brainlounge"
+    },
+    {
+      "id": 5,
+      "cliente": "Eire"
+    },
+    {
+      "id": 6,
+      "cliente": "Eimbee"
+    },
+    {
+      "id": 7,
+      "cliente": "Shufflester"
+    },
+    {
+      "id": 8,
+      "cliente": "Buzzdog"
+    },
+    {
+      "id": 9,
+      "cliente": "Trunyx"
+    },
+    {
+      "id": 10,
+      "cliente": "Meeveo"
+    }
   ],
   "productos": [
     {
@@ -3042,27 +3144,71 @@
       "descripcion": "Bagel - Everything Presliced",
       "importeUnitario": 17
     },
-    { "id": 5, "descripcion": "Sage Derby", "importeUnitario": 59 },
-    { "id": 6, "descripcion": "Wine - Cotes Du Rhone", "importeUnitario": 24 },
-    { "id": 7, "descripcion": "Plasticknivesblack", "importeUnitario": 32 },
-    { "id": 8, "descripcion": "Turkey - Ground. Lean", "importeUnitario": 70 },
-    { "id": 9, "descripcion": "Cheese - St. Paulin", "importeUnitario": 50 },
-    { "id": 10, "descripcion": "Chinese Lemon Pork", "importeUnitario": 9 },
+    {
+      "id": 5,
+      "descripcion": "Sage Derby",
+      "importeUnitario": 59
+    },
+    {
+      "id": 6,
+      "descripcion": "Wine - Cotes Du Rhone",
+      "importeUnitario": 24
+    },
+    {
+      "id": 7,
+      "descripcion": "Plasticknivesblack",
+      "importeUnitario": 32
+    },
+    {
+      "id": 8,
+      "descripcion": "Turkey - Ground. Lean",
+      "importeUnitario": 70
+    },
+    {
+      "id": 9,
+      "descripcion": "Cheese - St. Paulin",
+      "importeUnitario": 50
+    },
+    {
+      "id": 10,
+      "descripcion": "Chinese Lemon Pork",
+      "importeUnitario": 9
+    },
     {
       "id": 11,
       "descripcion": "Syrup - Monin - Passion Fruit",
       "importeUnitario": 66
     },
-    { "id": 12, "descripcion": "Sambuca - Opal Nera", "importeUnitario": 92 },
-    { "id": 13, "descripcion": "Chutney Sauce - Mango", "importeUnitario": 22 },
+    {
+      "id": 12,
+      "descripcion": "Sambuca - Opal Nera",
+      "importeUnitario": 92
+    },
+    {
+      "id": 13,
+      "descripcion": "Chutney Sauce - Mango",
+      "importeUnitario": 22
+    },
     {
       "id": 14,
       "descripcion": "Soup - Campbells Beef Noodle",
       "importeUnitario": 39
     },
-    { "id": 15, "descripcion": "Uniform Linen Charge", "importeUnitario": 98 },
-    { "id": 16, "descripcion": "Parsnip", "importeUnitario": 28 },
-    { "id": 17, "descripcion": "Pepper - Red Chili", "importeUnitario": 58 },
+    {
+      "id": 15,
+      "descripcion": "Uniform Linen Charge",
+      "importeUnitario": 98
+    },
+    {
+      "id": 16,
+      "descripcion": "Parsnip",
+      "importeUnitario": 28
+    },
+    {
+      "id": 17,
+      "descripcion": "Pepper - Red Chili",
+      "importeUnitario": 58
+    },
     {
       "id": 18,
       "descripcion": "Bread - Roll, Canadian Dinner",
@@ -3098,19 +3244,31 @@
       "descripcion": "Wine - Pinot Noir Mondavi Coastal",
       "importeUnitario": 24
     },
-    { "id": 25, "descripcion": "Sausage - Andouille", "importeUnitario": 16 },
+    {
+      "id": 25,
+      "descripcion": "Sausage - Andouille",
+      "importeUnitario": 16
+    },
     {
       "id": 26,
       "descripcion": "Pastry - Baked Cinnamon Stick",
       "importeUnitario": 36
     },
-    { "id": 27, "descripcion": "Sour Puss Sour Apple", "importeUnitario": 94 },
+    {
+      "id": 27,
+      "descripcion": "Sour Puss Sour Apple",
+      "importeUnitario": 94
+    },
     {
       "id": 28,
       "descripcion": "Bread - Focaccia Quarter",
       "importeUnitario": 16
     },
-    { "id": 29, "descripcion": "Salad Dressing", "importeUnitario": 33 },
+    {
+      "id": 29,
+      "descripcion": "Salad Dressing",
+      "importeUnitario": 33
+    },
     {
       "id": 30,
       "descripcion": "Wine - Red, Pelee Island Merlot",
@@ -3121,9 +3279,21 @@
       "descripcion": "Icecream - Dstk Cml And Fdg",
       "importeUnitario": 19
     },
-    { "id": 32, "descripcion": "Cleaner - Comet", "importeUnitario": 76 },
-    { "id": 33, "descripcion": "Sobe - Lizard Fuel", "importeUnitario": 31 },
-    { "id": 34, "descripcion": "Sauce - Plum", "importeUnitario": 92 },
+    {
+      "id": 32,
+      "descripcion": "Cleaner - Comet",
+      "importeUnitario": 76
+    },
+    {
+      "id": 33,
+      "descripcion": "Sobe - Lizard Fuel",
+      "importeUnitario": 31
+    },
+    {
+      "id": 34,
+      "descripcion": "Sauce - Plum",
+      "importeUnitario": 92
+    },
     {
       "id": 35,
       "descripcion": "Quail - Whole, Bone - In",
@@ -3134,26 +3304,66 @@
       "descripcion": "Pasta - Gnocchi, Potato",
       "importeUnitario": 34
     },
-    { "id": 37, "descripcion": "Mortadella", "importeUnitario": 3 },
-    { "id": 38, "descripcion": "Ketchup - Tomato", "importeUnitario": 9 },
-    { "id": 39, "descripcion": "Syrup - Chocolate", "importeUnitario": 52 },
-    { "id": 40, "descripcion": "Halibut - Fletches", "importeUnitario": 16 },
+    {
+      "id": 37,
+      "descripcion": "Mortadella",
+      "importeUnitario": 3
+    },
+    {
+      "id": 38,
+      "descripcion": "Ketchup - Tomato",
+      "importeUnitario": 9
+    },
+    {
+      "id": 39,
+      "descripcion": "Syrup - Chocolate",
+      "importeUnitario": 52
+    },
+    {
+      "id": 40,
+      "descripcion": "Halibut - Fletches",
+      "importeUnitario": 16
+    },
     {
       "id": 41,
       "descripcion": "Carbonated Water - Cherry",
       "importeUnitario": 15
     },
-    { "id": 42, "descripcion": "Juice - Mango", "importeUnitario": 53 },
-    { "id": 43, "descripcion": "Cheese - Grana Padano", "importeUnitario": 67 },
-    { "id": 44, "descripcion": "Anchovy In Oil", "importeUnitario": 92 },
-    { "id": 45, "descripcion": "Tea - Lemon Scented", "importeUnitario": 55 },
-    { "id": 46, "descripcion": "Hersey Shakes", "importeUnitario": 5 },
+    {
+      "id": 42,
+      "descripcion": "Juice - Mango",
+      "importeUnitario": 53
+    },
+    {
+      "id": 43,
+      "descripcion": "Cheese - Grana Padano",
+      "importeUnitario": 67
+    },
+    {
+      "id": 44,
+      "descripcion": "Anchovy In Oil",
+      "importeUnitario": 92
+    },
+    {
+      "id": 45,
+      "descripcion": "Tea - Lemon Scented",
+      "importeUnitario": 55
+    },
+    {
+      "id": 46,
+      "descripcion": "Hersey Shakes",
+      "importeUnitario": 5
+    },
     {
       "id": 47,
       "descripcion": "Cucumber - Pickling Ontario",
       "importeUnitario": 63
     },
-    { "id": 48, "descripcion": "Mackerel Whole Fresh", "importeUnitario": 38 },
+    {
+      "id": 48,
+      "descripcion": "Mackerel Whole Fresh",
+      "importeUnitario": 38
+    },
     {
       "id": 49,
       "descripcion": "Wine - Barbera Alba Doc 2001",
@@ -3179,7 +3389,11 @@
       "descripcion": "Yogurt - Peach, 175 Gr",
       "importeUnitario": 84
     },
-    { "id": 54, "descripcion": "Raspberries - Fresh", "importeUnitario": 46 },
+    {
+      "id": 54,
+      "descripcion": "Raspberries - Fresh",
+      "importeUnitario": 46
+    },
     {
       "id": 55,
       "descripcion": "Asparagus - White, Canned",
@@ -3190,8 +3404,16 @@
       "descripcion": "Beans - Butter Lrg Lima",
       "importeUnitario": 89
     },
-    { "id": 57, "descripcion": "Pecan Raisin - Tarts", "importeUnitario": 75 },
-    { "id": 58, "descripcion": "Butter Balls Salted", "importeUnitario": 1 },
+    {
+      "id": 57,
+      "descripcion": "Pecan Raisin - Tarts",
+      "importeUnitario": 75
+    },
+    {
+      "id": 58,
+      "descripcion": "Butter Balls Salted",
+      "importeUnitario": 1
+    },
     {
       "id": 59,
       "descripcion": "Muffin - Mix - Bran And Maple 15l",
@@ -3202,20 +3424,56 @@
       "descripcion": "Kellogs Cereal In A Cup",
       "importeUnitario": 62
     },
-    { "id": 61, "descripcion": "Pork - Inside", "importeUnitario": 17 },
-    { "id": 62, "descripcion": "Beef Flat Iron Steak", "importeUnitario": 11 },
-    { "id": 63, "descripcion": "Mangoes", "importeUnitario": 100 },
+    {
+      "id": 61,
+      "descripcion": "Pork - Inside",
+      "importeUnitario": 17
+    },
+    {
+      "id": 62,
+      "descripcion": "Beef Flat Iron Steak",
+      "importeUnitario": 11
+    },
+    {
+      "id": 63,
+      "descripcion": "Mangoes",
+      "importeUnitario": 100
+    },
     {
       "id": 64,
       "descripcion": "Rosemary - Primerba, Paste",
       "importeUnitario": 8
     },
-    { "id": 65, "descripcion": "Potatoes - Peeled", "importeUnitario": 84 },
-    { "id": 66, "descripcion": "Yogurt - Plain", "importeUnitario": 9 },
-    { "id": 67, "descripcion": "Beef - Shank", "importeUnitario": 60 },
-    { "id": 68, "descripcion": "Cake Circle, Paprus", "importeUnitario": 85 },
-    { "id": 69, "descripcion": "Pepper - Chili Powder", "importeUnitario": 92 },
-    { "id": 70, "descripcion": "Nectarines", "importeUnitario": 40 },
+    {
+      "id": 65,
+      "descripcion": "Potatoes - Peeled",
+      "importeUnitario": 84
+    },
+    {
+      "id": 66,
+      "descripcion": "Yogurt - Plain",
+      "importeUnitario": 9
+    },
+    {
+      "id": 67,
+      "descripcion": "Beef - Shank",
+      "importeUnitario": 60
+    },
+    {
+      "id": 68,
+      "descripcion": "Cake Circle, Paprus",
+      "importeUnitario": 85
+    },
+    {
+      "id": 69,
+      "descripcion": "Pepper - Chili Powder",
+      "importeUnitario": 92
+    },
+    {
+      "id": 70,
+      "descripcion": "Nectarines",
+      "importeUnitario": 40
+    },
     {
       "id": 71,
       "descripcion": "Wine - Cave Springs Dry Riesling",
@@ -3251,9 +3509,21 @@
       "descripcion": "Cheese - Brie Roitelet",
       "importeUnitario": 50
     },
-    { "id": 78, "descripcion": "Cognac - Courvaisier", "importeUnitario": 99 },
-    { "id": 79, "descripcion": "Chocolate - Milk", "importeUnitario": 94 },
-    { "id": 80, "descripcion": "Cheese - Comte", "importeUnitario": 22 },
+    {
+      "id": 78,
+      "descripcion": "Cognac - Courvaisier",
+      "importeUnitario": 99
+    },
+    {
+      "id": 79,
+      "descripcion": "Chocolate - Milk",
+      "importeUnitario": 94
+    },
+    {
+      "id": 80,
+      "descripcion": "Cheese - Comte",
+      "importeUnitario": 22
+    },
     {
       "id": 81,
       "descripcion": "Wine - Conde De Valdemar",
@@ -3264,9 +3534,21 @@
       "descripcion": "Containter - 3oz Microwave Rect.",
       "importeUnitario": 39
     },
-    { "id": 83, "descripcion": "Salt - Seasoned", "importeUnitario": 75 },
-    { "id": 84, "descripcion": "Flour - Whole Wheat", "importeUnitario": 82 },
-    { "id": 85, "descripcion": "Dill Weed - Fresh", "importeUnitario": 3 },
+    {
+      "id": 83,
+      "descripcion": "Salt - Seasoned",
+      "importeUnitario": 75
+    },
+    {
+      "id": 84,
+      "descripcion": "Flour - Whole Wheat",
+      "importeUnitario": 82
+    },
+    {
+      "id": 85,
+      "descripcion": "Dill Weed - Fresh",
+      "importeUnitario": 3
+    },
     {
       "id": 86,
       "descripcion": "Pastry - Choclate Baked",
@@ -3282,13 +3564,21 @@
       "descripcion": "Pasta - Fettuccine, Dry",
       "importeUnitario": 40
     },
-    { "id": 89, "descripcion": "Fork - Plastic", "importeUnitario": 7 },
+    {
+      "id": 89,
+      "descripcion": "Fork - Plastic",
+      "importeUnitario": 7
+    },
     {
       "id": 90,
       "descripcion": "Wine - Mondavi Coastal Private",
       "importeUnitario": 71
     },
-    { "id": 91, "descripcion": "Longos - Lasagna Beef", "importeUnitario": 49 },
+    {
+      "id": 91,
+      "descripcion": "Longos - Lasagna Beef",
+      "importeUnitario": 49
+    },
     {
       "id": 92,
       "descripcion": "Spice - Pepper Portions",
@@ -3304,8 +3594,16 @@
       "descripcion": "Foil - 4oz Custard Cup",
       "importeUnitario": 82
     },
-    { "id": 95, "descripcion": "Ostrich - Prime Cut", "importeUnitario": 39 },
-    { "id": 96, "descripcion": "Lamb - Shoulder", "importeUnitario": 46 },
+    {
+      "id": 95,
+      "descripcion": "Ostrich - Prime Cut",
+      "importeUnitario": 39
+    },
+    {
+      "id": 96,
+      "descripcion": "Lamb - Shoulder",
+      "importeUnitario": 46
+    },
     {
       "id": 97,
       "descripcion": "Brandy Cherry - Mcguinness",
@@ -3316,7 +3614,15 @@
       "descripcion": "Chicken - White Meat, No Tender",
       "importeUnitario": 27
     },
-    { "id": 99, "descripcion": "Puree - Blackcurrant", "importeUnitario": 96 },
-    { "id": 100, "descripcion": "Nut - Pumpkin Seeds", "importeUnitario": 36 }
+    {
+      "id": 99,
+      "descripcion": "Puree - Blackcurrant",
+      "importeUnitario": 96
+    },
+    {
+      "id": 100,
+      "descripcion": "Nut - Pumpkin Seeds",
+      "importeUnitario": 36
+    }
   ]
 }

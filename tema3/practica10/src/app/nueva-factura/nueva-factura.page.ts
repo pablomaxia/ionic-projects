@@ -1,9 +1,15 @@
+import { ProductosPage } from './../productos/productos.page';
 import { ProductoFactura } from './../modelo/ProductoFactura';
 import { ApiServiceProvider } from './../providers/api-service/api-service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../modelo/Cliente';
 import { Factura } from '../modelo/Factura';
-import { ToastController, ModalController } from '@ionic/angular';
+import {
+  ToastController,
+  ModalController,
+  NavController,
+} from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nueva-factura',
@@ -13,14 +19,21 @@ import { ToastController, ModalController } from '@ionic/angular';
 export class NuevaFacturaPage implements OnInit {
   public clientes: Cliente[];
   public productos: ProductoFactura[];
-  public factura: Factura;
+  public producto: ProductoFactura = new ProductoFactura('', 0, 0);
+  public factura: Factura = new Factura(null, null, null, null);
   public facturas: Factura[];
 
   constructor(
     private apiService: ApiServiceProvider,
     private toastController: ToastController,
-    private modalController: ModalController
-  ) {}
+    private modalController: ModalController,
+    private navCtrl: NavController,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.producto = JSON.parse(params['producto']);
+    });
+  }
 
   ngOnInit() {
     this.getClientes();
@@ -79,13 +92,14 @@ export class NuevaFacturaPage implements OnInit {
 
   async anadirProductosFactura() {
     const modal = await this.modalController.create({
-      component: NuevaFacturaPage,
+      component: ProductosPage,
       componentProps: {
-        producto: JSON.stringify(new ProductoFactura(null, null, null)),
+        producto: JSON.stringify(this.producto),
       },
     });
-
-    modal.onDidDismiss().then((producto) => {});
+    modal.onDidDismiss().then(() => {
+      this.factura.productos.push(this.producto);
+    });
     return await modal.present();
   } //end_anadirProductosFactura
 
@@ -94,6 +108,7 @@ export class NuevaFacturaPage implements OnInit {
       .insertarFactura(this.factura)
       .then((factura: Factura) => {
         this.facturas.push(factura);
+        this.navCtrl.navigateForward('/home');
       })
       .catch((error: string) => {
         console.log(error);
@@ -109,4 +124,8 @@ export class NuevaFacturaPage implements OnInit {
 
     toast.present();
   } //end_presentToast
+
+  cancelar() {
+    this.navCtrl.navigateBack('/home');
+  } //end_cancelar
 }

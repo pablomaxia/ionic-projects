@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-select
+    cancelText="Cancelar"
+    okText="OK"
+    placeholder="Seleccione productos"
+  >
+    <ion-select-option
+      *ngFor="let producto of productos"
+      [(ngModel)]="productoEnviar"
+      [value]="productoEnviar"
+    >
+      {{producto.descripcion}}
+    </ion-select-option>
+  </ion-select>
+  <!--end_ion-select-->
+  <ion-item>
+    <ion-input type="number" [(ngModel)]="productoEnviar.unidades"></ion-input>
+    <ion-label
+      >{{productoEnviar.importeUnitario * productoEnviar.unidades}}</ion-label
+    >
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="enviarProducto()">Aceptar</ion-button>
+    <!--end botón aceptar-->
+    <ion-button (click)="cancelar()">Cancelar</ion-button>
+    <!--end botón aceptar-->
+  </ion-item>
+</ion-content>
