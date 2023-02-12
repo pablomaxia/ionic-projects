@@ -29,11 +29,7 @@ export class NuevaFacturaPage implements OnInit {
     private modalController: ModalController,
     private navCtrl: NavController,
     private activatedRoute: ActivatedRoute
-  ) {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.producto = JSON.parse(params['producto']);
-    });
-  }
+  ) {}
 
   ngOnInit() {
     this.getClientes();
@@ -91,6 +87,9 @@ export class NuevaFacturaPage implements OnInit {
   } // end_importeTotal
 
   async anadirProductosFactura() {
+    /*this.activatedRoute.queryParams.subscribe((params) => {
+      this.producto = JSON.parse(params['producto']);
+    });*/
     const modal = await this.modalController.create({
       component: ProductosPage,
       componentProps: {

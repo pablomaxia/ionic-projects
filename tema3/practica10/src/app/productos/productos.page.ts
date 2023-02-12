@@ -29,15 +29,16 @@ export class ProductosPage implements OnInit {
   } //end_ngOnInit
 
   enviarProducto() {
-    let navigationExtras: NavigationExtras = {
+    /*let navigationExtras: NavigationExtras = {
       queryParams: {
         producto: JSON.stringify(this.productoEnviar),
       },
     };
-    this.navCtrl.navigateForward('/nueva-factura', navigationExtras);
+    this.navCtrl.navigateForward('/nueva-factura', navigationExtras);*/
+    this.navCtrl.navigateForward('/nueva-factura');
   } //end_enviarProducto
 
   cancelar() {
-    this.navCtrl.navigateBack('/nueva-factura');
+    this.navCtrl.navigateForward('/nueva-factura');
   } //end_cancelar
 }

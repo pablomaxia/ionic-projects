@@ -9,12 +9,9 @@
     cancelText="Cancelar"
     okText="OK"
     placeholder="Seleccione productos"
+    [(ngModel)]="productoEnviar"
   >
-    <ion-select-option
-      *ngFor="let producto of productos"
-      [(ngModel)]="productoEnviar"
-      [value]="productoEnviar"
-    >
+    <ion-select-option *ngFor="let producto of productos" [value]="producto">
       {{producto.descripcion}}
     </ion-select-option>
   </ion-select>
