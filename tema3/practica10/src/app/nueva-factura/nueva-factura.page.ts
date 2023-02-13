@@ -1,5 +1,5 @@
 import { ProductosPage } from './../productos/productos.page';
-import { ProductoFactura } from './../modelo/ProductoFactura';
+import { LineaDetalle } from './../modelo/LineaDetalle';
 import { ApiServiceProvider } from './../providers/api-service/api-service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../modelo/Cliente';
@@ -18,14 +18,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NuevaFacturaPage implements OnInit {
   public clientes: Cliente[];
-  public productos: ProductoFactura[];
-  public producto: ProductoFactura = new ProductoFactura('', 0, 0);
+  public productos: LineaDetalle[] = new Array();
+  public producto: LineaDetalle = new LineaDetalle('', 0, 0);
   public factura: Factura = new Factura(null, null, null, null);
-  public facturas: Factura[];
+  public facturas: Factura[] = new Array();
 
   constructor(
     private apiService: ApiServiceProvider,
-    private toastController: ToastController,
     private modalController: ModalController,
     private navCtrl: NavController,
     private activatedRoute: ActivatedRoute
@@ -47,18 +46,6 @@ export class NuevaFacturaPage implements OnInit {
       });
   } //end_getClientes
 
-  getProductosFactura() {
-    this.apiService
-      .getProductosFactura()
-      .then((productos: ProductoFactura[]) => {
-        this.productos = productos;
-        console.log(productos);
-      })
-      .catch((error: string) => {
-        console.log(error);
-      });
-  } //end_getProductosFactura
-
   getFacturas() {
     this.apiService
       .getFacturas()
@@ -70,21 +57,6 @@ export class NuevaFacturaPage implements OnInit {
         console.log(error);
       });
   } //end_getFacturas
-
-  public importeTotal(factura: Factura, iva: boolean): number {
-    let total: number = 0;
-
-    factura.productos.forEach((producto) => {
-      total += producto.importeUnitario * producto.unidades;
-      //console.log(total);
-    });
-
-    if (iva) {
-      total *= factura.porcentajeIva;
-    }
-
-    return Math.round(total);
-  } // end_importeTotal
 
   async anadirProductosFactura() {
     /*this.activatedRoute.queryParams.subscribe((params) => {
@@ -113,16 +85,6 @@ export class NuevaFacturaPage implements OnInit {
         console.log(error);
       });
   } //end_crearFactura
-
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-
-      duration: 2000,
-    });
-
-    toast.present();
-  } //end_presentToast
 
   cancelar() {
     this.navCtrl.navigateBack('/home');

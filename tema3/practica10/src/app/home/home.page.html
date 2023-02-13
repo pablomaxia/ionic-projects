@@ -12,9 +12,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let factura of facturas">
+    <ion-item *ngFor="let elementoLista of lista">
       <ion-label
-        >{{factura.id}} {{factura.cliente}} {{importeTotal(factura)}}</ion-label
+        >{{elementoLista.id}} {{elementoLista.cliente}}
+        {{elementoLista.importeTotalConIva}}</ion-label
       >
     </ion-item>
   </ion-list>

@@ -1,6 +1,4 @@
-import { ProductoInterface } from './ProductoInterface';
-
-export class Producto implements ProductoInterface {
+export class Producto {
   constructor(
     public id: number,
     public descripcion: string,

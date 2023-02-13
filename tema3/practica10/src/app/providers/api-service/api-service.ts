@@ -2,7 +2,7 @@ import { Factura } from './../../modelo/Factura';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/modelo/Cliente';
-import { ProductoFactura } from 'src/app/modelo/ProductoFactura';
+import { LineaDetalle } from 'src/app/modelo/LineaDetalle';
 import { Producto } from 'src/app/modelo/Producto';
 
 @Injectable()
@@ -51,14 +51,14 @@ export class ApiServiceProvider {
     return promise;
   } //end_getFacturas
 
-  getProductosFactura(): Promise<ProductoFactura[]> {
-    let promise = new Promise<ProductoFactura[]>((resolve, reject) => {
+  getLineasDetalle(): Promise<LineaDetalle[]> {
+    let promise = new Promise<LineaDetalle[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/productos')
         .toPromise()
         .then((data: any) => {
-          let productos = new Array<ProductoFactura>();
-          data.forEach((producto: ProductoFactura) => {
+          let productos = new Array<LineaDetalle>();
+          data.forEach((producto: LineaDetalle) => {
             productos.push(producto);
           });
           resolve(productos);
@@ -69,7 +69,7 @@ export class ApiServiceProvider {
     });
 
     return promise;
-  } // end_getProductosFactura
+  } // end_getLineasDetalle
 
   getProductos(): Promise<Producto[]> {
     let promise = new Promise<Producto[]>((resolve, reject) => {

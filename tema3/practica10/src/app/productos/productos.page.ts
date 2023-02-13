@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { ProductoFactura } from '../modelo/ProductoFactura';
+import { LineaDetalle } from '../modelo/LineaDetalle';
+import { Producto } from '../modelo/Producto';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
 
 @Component({
@@ -10,8 +11,8 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
   styleUrls: ['./productos.page.scss'],
 })
 export class ProductosPage implements OnInit {
-  public productos: ProductoFactura[];
-  public productoEnviar: ProductoFactura = new ProductoFactura('', 0, 0);
+  public productos: Producto[];
+  public productoEnviar: LineaDetalle = new LineaDetalle('', 0, 0);
 
   constructor(
     private apiService: ApiServiceProvider,
@@ -20,8 +21,8 @@ export class ProductosPage implements OnInit {
 
   ngOnInit() {
     this.apiService
-      .getProductosFactura()
-      .then((productos: ProductoFactura[]) => {
+      .getProductos()
+      .then((productos: Producto[]) => {
         this.productos = productos;
         console.log(this.productos);
       })

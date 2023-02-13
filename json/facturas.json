@@ -3079,6 +3079,28 @@
           "unidades": 15
         }
       ]
+    },
+    {
+      "id": 51,
+      "cliente": "Pepe",
+      "porcentajeIva": 21,
+      "productos": [
+        {
+          "descripcion": "descripcion1",
+          "importeUnitario": 10,
+          "unidades": 4
+        },
+        {
+          "descripcion": "descripcion2",
+          "importeUnitario": 20,
+          "unidades": 5
+        },
+        {
+          "descripcion": "descripcion3",
+          "importeUnitario": 30,
+          "unidades": 6
+        }
+      ]
     }
   ],
   "clientes": [
