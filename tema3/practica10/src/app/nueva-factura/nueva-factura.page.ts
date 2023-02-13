@@ -18,10 +18,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NuevaFacturaPage implements OnInit {
   public clientes: Cliente[];
-  public productos: LineaDetalle[] = new Array();
   public producto: LineaDetalle = new LineaDetalle('', 0, 0);
   public factura: Factura = new Factura(null, null, null, null);
-  public facturas: Factura[] = new Array();
 
   constructor(
     private apiService: ApiServiceProvider,
@@ -46,30 +44,17 @@ export class NuevaFacturaPage implements OnInit {
       });
   } //end_getClientes
 
-  getFacturas() {
-    this.apiService
-      .getFacturas()
-      .then((facturas: Factura[]) => {
-        this.facturas = facturas;
-        console.log(this.facturas);
-      })
-      .catch((error: string) => {
-        console.log(error);
-      });
-  } //end_getFacturas
-
   async anadirProductosFactura() {
-    /*this.activatedRoute.queryParams.subscribe((params) => {
-      this.producto = JSON.parse(params['producto']);
-    });*/
     const modal = await this.modalController.create({
       component: ProductosPage,
       componentProps: {
-        producto: JSON.stringify(this.producto),
+        productoEnviar: JSON.stringify(this.producto),
       },
     });
-    modal.onDidDismiss().then(() => {
-      this.factura.productos.push(this.producto);
+    modal.onDidDismiss().then((dataProducto) => {
+      if (dataProducto != null) {
+        this.factura.productos.push(dataProducto['data']);
+      }
     });
     return await modal.present();
   } //end_anadirProductosFactura
@@ -78,7 +63,6 @@ export class NuevaFacturaPage implements OnInit {
     this.apiService
       .insertarFactura(this.factura)
       .then((factura: Factura) => {
-        this.facturas.push(factura);
         this.navCtrl.navigateForward('/home');
       })
       .catch((error: string) => {
@@ -89,4 +73,15 @@ export class NuevaFacturaPage implements OnInit {
   cancelar() {
     this.navCtrl.navigateBack('/home');
   } //end_cancelar
+
+  importeTotal(factura: Factura, iva: boolean) {
+    let total: number = 0;
+    factura.productos.forEach((producto) => {
+      total += producto.importeUnitario * producto.unidades;
+    });
+
+    if (iva) total = total * (1 + factura.porcentajeIva / 100);
+
+    return total;
+  }
 }

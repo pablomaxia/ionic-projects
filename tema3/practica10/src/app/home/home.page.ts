@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     console.log(this.lista);
-  }
+  } //end_ionViewWillEnter
 
   getFacturas() {
     this.apiService

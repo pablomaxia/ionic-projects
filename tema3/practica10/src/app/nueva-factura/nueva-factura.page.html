@@ -15,20 +15,20 @@
     </ion-select-option>
   </ion-select>
   <!--end_ion-select-->
-  <!--<ion-list *ngIf="factura.productos !== null">
+  <ion-list>
     <ion-item *ngFor="let producto of factura.productos">
       <ion-label
         >{{producto.descripcion}} {{producto.importeUnitario}}
         {{producto.unidades}} {{producto.importeUnitario * producto.unidades}}
       </ion-label>
     </ion-item>
-  </ion-list>-->
+  </ion-list>
   <!--end_productos factura-->
-  <!--<div *ngIf="factura.productos !== null">
+  <div *ngIf="factura.productos !== null">
     <ion-item>Importe total sin IVA: {{importeTotal(factura,false)}}</ion-item>
     <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
     <ion-item>Importe total con IVA: {{importeTotal(factura,true)}}</ion-item>
-  </div>-->
+  </div>
   <ion-item>
     <ion-button (click)="anadirProductosFactura()"
       >Añadir Productos Factura</ion-button

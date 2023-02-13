@@ -3101,6 +3101,30 @@
           "unidades": 6
         }
       ]
+    },
+    {
+      "id": 52,
+      "cliente": null,
+      "porcentajeIva": null,
+      "productos": null
+    },
+    {
+      "id": 53,
+      "cliente": null,
+      "porcentajeIva": null,
+      "productos": null
+    },
+    {
+      "id": 54,
+      "cliente": null,
+      "porcentajeIva": null,
+      "productos": null
+    },
+    {
+      "id": 55,
+      "cliente": null,
+      "porcentajeIva": null,
+      "productos": null
     }
   ],
   "clientes": [
