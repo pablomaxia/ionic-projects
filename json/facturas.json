@@ -3104,27 +3104,42 @@
     },
     {
       "id": 52,
-      "cliente": null,
-      "porcentajeIva": null,
-      "productos": null
+      "cliente": "Leo",
+      "porcentajeIva": 10,
+      "productos": [
+        {
+          "descripcion": "Appetizer - Spring Roll, Veg",
+          "importeUnitario": 75,
+          "unidades": 1
+        },
+        {
+          "descripcion": "Bagel - Everything Presliced",
+          "importeUnitario": 17,
+          "unidades": 3
+        }
+      ]
     },
     {
       "id": 53,
-      "cliente": null,
-      "porcentajeIva": null,
-      "productos": null
-    },
-    {
-      "id": 54,
-      "cliente": null,
-      "porcentajeIva": null,
-      "productos": null
-    },
-    {
-      "id": 55,
-      "cliente": null,
-      "porcentajeIva": null,
-      "productos": null
+      "cliente": "Leo",
+      "porcentajeIva": 48,
+      "productos": [
+        {
+          "descripcion": "Appetizer - Spring Roll, Veg",
+          "importeUnitario": 75,
+          "unidades": 12
+        },
+        {
+          "descripcion": "Appetizer - Spring Roll, Veg",
+          "importeUnitario": 75,
+          "unidades": 12
+        },
+        {
+          "descripcion": "Sage Derby",
+          "importeUnitario": 59,
+          "unidades": 1
+        }
+      ]
     }
   ],
   "clientes": [

@@ -17,9 +17,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./nueva-factura.page.scss'],
 })
 export class NuevaFacturaPage implements OnInit {
+  private IVA: number[] = [];
   public clientes: Cliente[];
   public producto: LineaDetalle = new LineaDetalle('', 0, 0);
-  public factura: Factura = new Factura(null, null, null, null);
+  public factura: Factura;
 
   constructor(
     private apiService: ApiServiceProvider,
@@ -30,6 +31,15 @@ export class NuevaFacturaPage implements OnInit {
 
   ngOnInit() {
     this.getClientes();
+    for (let index = 1; index < 50; index++) {
+      this.IVA.push(index);
+    }
+    this.factura = new Factura(
+      null,
+      'Leo',
+      Number((Math.random() * 50 + 1).toFixed(0)),
+      new Array()
+    );
   } //end_ngOnInit
 
   getClientes() {
@@ -52,8 +62,15 @@ export class NuevaFacturaPage implements OnInit {
       },
     });
     modal.onDidDismiss().then((dataProducto) => {
-      if (dataProducto != null) {
-        this.factura.productos.push(dataProducto['data']);
+      console.log(dataProducto['data']);
+      let producto: LineaDetalle = new LineaDetalle(
+        dataProducto['data'].descripcion,
+        dataProducto['data'].importeUnitario,
+        dataProducto['data'].unidades
+      );
+      console.log(producto);
+      if (producto != null) {
+        this.factura.productos.push(producto);
       }
     });
     return await modal.present();

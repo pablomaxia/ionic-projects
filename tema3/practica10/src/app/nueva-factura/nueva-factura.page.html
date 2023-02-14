@@ -24,7 +24,7 @@
     </ion-item>
   </ion-list>
   <!--end_productos factura-->
-  <div *ngIf="factura.productos !== null">
+  <div>
     <ion-item>Importe total sin IVA: {{importeTotal(factura,false)}}</ion-item>
     <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
     <ion-item>Importe total con IVA: {{importeTotal(factura,true)}}</ion-item>
