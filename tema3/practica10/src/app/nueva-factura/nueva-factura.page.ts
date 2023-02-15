@@ -34,7 +34,6 @@ export class NuevaFacturaPage implements OnInit {
   } //end_ngOnInit
 
   aceptar() {
-    console.log(this.factura);
     this.modalCtrl.dismiss(this.factura);
   } //end_aceptar
 

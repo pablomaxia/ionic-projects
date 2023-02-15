@@ -96,7 +96,9 @@ export class HomePage implements OnInit {
       if (nuevaFactura != null) {
         this.apiService
           .insertarFactura(nuevaFactura)
-          .then((factura: Factura) => {})
+          .then((factura: Factura) => {
+            console.log(factura);
+          })
           .catch((error: string) => {
             console.log(error);
           });
