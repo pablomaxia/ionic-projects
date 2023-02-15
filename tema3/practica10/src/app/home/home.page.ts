@@ -1,10 +1,11 @@
-import { Factura } from './../modelo/Factura';
+import { NuevaFacturaPage } from './../nueva-factura/nueva-factura.page';
 import { ApiServiceProvider } from './../providers/api-service/api-service';
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../modelo/Cliente';
-import { NavController } from '@ionic/angular';
-import { LineaDetalle } from '../modelo/LineaDetalle';
+import { ModalController } from '@ionic/angular';
 import { ElementoLista } from './ElementoLista';
+import { Factura } from './../modelo/Factura';
+import { Cliente } from '../modelo/Cliente';
+import { LineaDetalle } from '../modelo/LineaDetalle';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +19,12 @@ export class HomePage implements OnInit {
 
   constructor(
     private apiService: ApiServiceProvider,
-    private navCtrl: NavController
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
     this.getFacturas();
-  }
+  } //end_ngOnInit
 
   ionViewWillEnter() {
     console.log(this.lista);
@@ -63,7 +64,7 @@ export class HomePage implements OnInit {
       });
   } //end_getFacturas
 
-  crearFactura() {
+  async crearFactura() {
     /*
     let lineasDetalle: LineaDetalle[] = new Array<LineaDetalle>();
     lineasDetalle.push(new LineaDetalle('descripcion1', 10, 4));
@@ -78,7 +79,29 @@ export class HomePage implements OnInit {
         console.log(factura);
       })
       .catch((error: string) => console.log(error));
-*/
     this.navCtrl.navigateForward('/nueva-factura');
+*/
+    const modal = await this.modalController.create({
+      component: NuevaFacturaPage,
+    });
+    modal.onDidDismiss().then((dataNuevaFactura) => {
+      console.log(dataNuevaFactura['data']);
+      let nuevaFactura: Factura = new Factura(
+        dataNuevaFactura['data'].id,
+        dataNuevaFactura['data'].cliente,
+        dataNuevaFactura['data'].porcentajeIva,
+        dataNuevaFactura['data'].productos
+      );
+      console.log(nuevaFactura);
+      if (nuevaFactura != null) {
+        this.apiService
+          .insertarFactura(nuevaFactura)
+          .then((factura: Factura) => {})
+          .catch((error: string) => {
+            console.log(error);
+          });
+      }
+    });
+    return await modal.present();
   } // end_crearFactura
 }

@@ -4,12 +4,7 @@ import { ApiServiceProvider } from './../providers/api-service/api-service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../modelo/Cliente';
 import { Factura } from '../modelo/Factura';
-import {
-  ToastController,
-  ModalController,
-  NavController,
-} from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-nueva-factura',
@@ -20,13 +15,13 @@ export class NuevaFacturaPage implements OnInit {
   private IVA: number[] = [];
   public clientes: Cliente[];
   public producto: LineaDetalle = new LineaDetalle('', 0, 0);
-  public factura: Factura;
+  public factura: Factura = Factura.crearFacturaVacia();
+  public cliente: Cliente = Cliente.crearClienteVacio();
 
   constructor(
     private apiService: ApiServiceProvider,
     private modalController: ModalController,
-    private navCtrl: NavController,
-    private activatedRoute: ActivatedRoute
+    private modalCtrl: ModalController
   ) {}
 
   ngOnInit() {
@@ -34,13 +29,18 @@ export class NuevaFacturaPage implements OnInit {
     for (let index = 1; index < 50; index++) {
       this.IVA.push(index);
     }
-    this.factura = new Factura(
-      null,
-      'Leo',
-      Number((Math.random() * 50 + 1).toFixed(0)),
-      new Array()
-    );
+    console.log(this.factura);
+    console.log(this.cliente);
   } //end_ngOnInit
+
+  aceptar() {
+    console.log(this.factura);
+    this.modalCtrl.dismiss(this.factura);
+  } //end_aceptar
+
+  cancelar() {
+    this.modalCtrl.dismiss(); //se cancela la edición. No se devuelven datos.
+  } //end_cancelar
 
   getClientes() {
     this.apiService
@@ -75,30 +75,4 @@ export class NuevaFacturaPage implements OnInit {
     });
     return await modal.present();
   } //end_anadirProductosFactura
-
-  crearFactura() {
-    this.apiService
-      .insertarFactura(this.factura)
-      .then((factura: Factura) => {
-        this.navCtrl.navigateForward('/home');
-      })
-      .catch((error: string) => {
-        console.log(error);
-      });
-  } //end_crearFactura
-
-  cancelar() {
-    this.navCtrl.navigateBack('/home');
-  } //end_cancelar
-
-  importeTotal(factura: Factura, iva: boolean) {
-    let total: number = 0;
-    factura.productos.forEach((producto) => {
-      total += producto.importeUnitario * producto.unidades;
-    });
-
-    if (iva) total = total * (1 + factura.porcentajeIva / 100);
-
-    return total;
-  }
 }

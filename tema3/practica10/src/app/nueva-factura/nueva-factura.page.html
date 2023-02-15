@@ -1,6 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>nueva-factura</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="aceptar()"
+        ><ion-icon slot="icon-only" name="add"
+      /></ion-button>
+      <!--end botón aceptar-->
+      <ion-button (click)="cancelar()"
+        ><ion-icon slot="icon-only" name="close-circle-outline"
+      /></ion-button>
+      <!--end botón aceptar-->
+    </ion-buttons>
+    <!--end_buttons-->
   </ion-toolbar>
 </ion-header>
 
@@ -9,6 +20,7 @@
     cancelText="Cancelar"
     okText="OK"
     placeholder="Seleccione un cliente"
+    [(ngModel)]="cliente"
   >
     <ion-select-option *ngFor="let cliente of clientes" [value]="cliente">
       {{cliente.cliente}}
@@ -17,17 +29,15 @@
   <!--end_ion-select-->
   <ion-list>
     <ion-item *ngFor="let producto of factura.productos">
-      <ion-label
-        >{{producto.descripcion}} {{producto.importeUnitario}}
-        {{producto.unidades}} {{producto.importeUnitario * producto.unidades}}
-      </ion-label>
+      {{producto.descripcion}} {{producto.importeUnitario}}
+      {{producto.unidades}} {{producto.importeUnitario * producto.unidades}}
     </ion-item>
   </ion-list>
   <!--end_productos factura-->
   <div>
-    <ion-item>Importe total sin IVA: {{importeTotal(factura,false)}}</ion-item>
+    <ion-item>Importe total sin IVA: {{factura.getTotalSinIva()}}</ion-item>
     <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
-    <ion-item>Importe total con IVA: {{importeTotal(factura,true)}}</ion-item>
+    <ion-item>Importe total con IVA: {{factura.getTotalConIva()}}</ion-item>
   </div>
   <ion-item>
     <ion-button (click)="anadirProductosFactura()"
@@ -35,11 +45,4 @@
     >
   </ion-item>
   <!--end_botón añadir productos-->
-  <ion-item>
-    <ion-button (click)="crearFactura()">Aceptar</ion-button>
-    <!--end botón aceptar-->
-    <ion-button (click)="cancelar()">Cancelar</ion-button>
-    <!--end botón aceptar-->
-  </ion-item>
-  <!--end_buttons-->
 </ion-content>
