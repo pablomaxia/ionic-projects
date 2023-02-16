@@ -16,7 +16,6 @@ export class NuevaFacturaPage implements OnInit {
   public clientes: Cliente[];
   public producto: LineaDetalle = new LineaDetalle('', 0, 0);
   public factura: Factura = Factura.crearFacturaVacia();
-  public cliente: Cliente = Cliente.crearClienteVacio();
 
   constructor(
     private apiService: ApiServiceProvider,
@@ -30,7 +29,6 @@ export class NuevaFacturaPage implements OnInit {
       this.IVA.push(index);
     }
     console.log(this.factura);
-    console.log(this.cliente);
   } //end_ngOnInit
 
   aceptar() {
@@ -53,23 +51,18 @@ export class NuevaFacturaPage implements OnInit {
       });
   } //end_getClientes
 
-  async anadirProductosFactura() {
+  async nuevoProducto() {
     const modal = await this.modalController.create({
       component: ProductosPage,
       componentProps: {
         productoEnviar: JSON.stringify(this.producto),
       },
     });
-    modal.onDidDismiss().then((dataProducto) => {
-      console.log(dataProducto['data']);
-      let producto: LineaDetalle = new LineaDetalle(
-        dataProducto['data'].descripcion,
-        dataProducto['data'].importeUnitario,
-        dataProducto['data'].unidades
-      );
-      console.log(producto);
-      if (producto != null) {
-        this.factura.productos.push(producto);
+    modal.onDidDismiss().then((dataNuevaLineaDetalle) => {
+      console.log(dataNuevaLineaDetalle['data']);
+      let lineaDetalle: LineaDetalle = dataNuevaLineaDetalle['data'];
+      if (lineaDetalle != null) {
+        this.factura.productos.push(lineaDetalle);
       }
     });
     return await modal.present();

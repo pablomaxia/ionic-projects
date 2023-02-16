@@ -9,7 +9,11 @@
       <ion-button (click)="cancelar()"
         ><ion-icon slot="icon-only" name="close-circle-outline"
       /></ion-button>
-      <!--end botón aceptar-->
+      <!--end botón cancelar-->
+      <ion-button (click)="nuevoProducto()"
+        ><ion-icon slot="icon-only" name="person-add-outline"
+      /></ion-button>
+      <!--end_botón nuevoProducto-->
     </ion-buttons>
     <!--end_buttons-->
   </ion-toolbar>
@@ -20,7 +24,7 @@
     cancelText="Cancelar"
     okText="OK"
     placeholder="Seleccione un cliente"
-    [(ngModel)]="cliente"
+    [(ngModel)]="factura.cliente"
   >
     <ion-select-option *ngFor="let cliente of clientes" [value]="cliente">
       {{cliente.cliente}}
@@ -39,10 +43,4 @@
     <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
     <ion-item>Importe total con IVA: {{factura.getTotalConIva()}}</ion-item>
   </div>
-  <ion-item>
-    <ion-button (click)="anadirProductosFactura()"
-      >Añadir Productos Factura</ion-button
-    >
-  </ion-item>
-  <!--end_botón añadir productos-->
 </ion-content>

@@ -1,6 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()"
+        ><ion-icon slot="icon-only" name="close-circle-outline"
+      /></ion-button>
+      <!--end botón cancelar-->
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +26,7 @@
       >
         <ion-select-option
           *ngFor="let producto of productos"
-          [value]="producto"
+          [value]="producto.id"
         >
           {{producto.descripcion}}
         </ion-select-option>
@@ -64,8 +70,6 @@
         >Submit data</ion-button
       >
       <!--end submit button-->
-      <ion-button (click)="closeModal()">Cancelar</ion-button>
-      <!--end botón aceptar-->
     </ion-item>
   </form>
   <!--end form-->

@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { NavController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { LineaDetalle } from '../modelo/LineaDetalle';
 import { Producto } from '../modelo/Producto';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
@@ -19,16 +19,16 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
 export class ProductosPage implements OnInit {
   public productos: Producto[];
   public productoEnviar: ProductoEnviar = new ProductoEnviar('', 0, 0, 0.0);
+  public producto: Producto = new Producto(null, null, null);
   validations_form!: FormGroup;
 
   constructor(
     private apiService: ApiServiceProvider,
-    private navCtrl: NavController,
     private modalCtrl: ModalController,
     public formBuilder: FormBuilder
   ) {
     this.validations_form = this.formBuilder.group({
-      producto: new FormControl(this.productoEnviar, Validators.required),
+      producto: new FormControl(this.producto, Validators.required),
       unidades: new FormControl(
         1,
         Validators.compose([Validators.required, Validators.min(1)])
@@ -62,16 +62,11 @@ export class ProductosPage implements OnInit {
       values['producto'].importeUnitario,
       values['importeTotal']
     );
-    /*producto.descripcion = values['producto'].descripcion;
-    producto.importeUnitario = values['producto'].importeUnitario;
-    producto.unidades = values['unidades'];
-    producto.importeTotal = values['importeTotal'];
-*/
     console.log(producto);
     this.modalCtrl.dismiss(producto);
   } //end_enviarProducto
 
-  public closeModal() {
+  public cancelar() {
     this.modalCtrl.dismiss(); //se cancela la edición. No se devuelven datos.
   }
 }

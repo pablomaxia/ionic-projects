@@ -4,10 +4,10 @@
   "compilerOptions": {
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
+    "strict": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
