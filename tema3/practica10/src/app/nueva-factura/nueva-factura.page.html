@@ -7,9 +7,13 @@
       /></ion-button>
       <!--end botón cancelar-->
       <ion-button (click)="nuevoProducto()"
-        ><ion-icon slot="icon-only" name="person-add-outline"
+        ><ion-icon slot="icon-only" name="add-outline"
       /></ion-button>
       <!--end_botón nuevoProducto-->
+      <ion-button (click)="nuevoCliente()"
+        ><ion-icon slot="icon-only" name="person-add-outline"
+      /></ion-button>
+      <!--end_botón nuevoCliente-->
     </ion-buttons>
     <!--end_buttons-->
   </ion-toolbar>
@@ -30,6 +34,7 @@
     </ion-select-option>
   </ion-select>
   end_ion-select-->
+  <ion-item>Cliente: {{factura.cliente}}</ion-item>
   <ion-list>
     <ion-item *ngFor="let producto of factura.productos">
       {{producto.descripcion}} {{producto.importeUnitario}}

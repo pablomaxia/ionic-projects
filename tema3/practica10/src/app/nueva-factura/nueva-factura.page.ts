@@ -1,3 +1,4 @@
+import { ClientesPage } from './../clientes/clientes.page';
 import { ProductosPage } from './../productos/productos.page';
 import { LineaDetalle } from './../modelo/LineaDetalle';
 import { ApiServiceProvider } from './../providers/api-service/api-service';
@@ -60,5 +61,20 @@ export class NuevaFacturaPage implements OnInit {
       }
     });
     return await modal.present();
-  } //end_anadirProductosFactura
+  } //end_nuevoProducto
+
+  async nuevoCliente() {
+    const modal = await this.modalController.create({
+      component: ClientesPage,
+      componentProps: {},
+    });
+    modal.onDidDismiss().then((dataNuevoCliente) => {
+      console.log(dataNuevoCliente['data']);
+      let cliente: Cliente = dataNuevoCliente['data'];
+      if (cliente != null) {
+        this.factura.cliente = cliente.cliente;
+      }
+    });
+    return await modal.present();
+  } //end_nuevoProducto
 }

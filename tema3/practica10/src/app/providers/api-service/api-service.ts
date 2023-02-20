@@ -31,6 +31,41 @@ export class ApiServiceProvider {
     return promise;
   } //end_getClientes
 
+  getClientesPaginado(
+    numPagina: number,
+    numElementosPorPagina: number,
+    campo: string,
+    order: string
+  ): Promise<Cliente[]> {
+    let promise = new Promise<Cliente[]>((resolve, reject) => {
+      this.http
+        .get(
+          this.URL +
+            '/clientes/?_page=' +
+            numPagina +
+            '&_limit=' +
+            numElementosPorPagina +
+            '&_sort=' +
+            campo +
+            '&_order=' +
+            order
+        )
+        .toPromise()
+        .then((data: any) => {
+          let clientes = new Array<Cliente>();
+          data.forEach((cliente: Cliente) => {
+            clientes.push(cliente);
+          });
+          resolve(clientes);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    });
+
+    return promise;
+  } //end_getClientesPaginado
+
   getFacturas(): Promise<Factura[]> {
     let promise = new Promise<Factura[]>((resolve, reject) => {
       this.http

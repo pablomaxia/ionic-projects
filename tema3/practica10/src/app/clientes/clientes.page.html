@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()"
+        ><ion-icon slot="icon-only" name="close-circle-outline"
+      /></ion-button>
+      <!--end botón cancelar-->
+    </ion-buttons>
+    <!--end_buttons-->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item
+    *ngFor="let cliente of clientes"
+    (click)="seleccionarCliente(cliente)"
+    (ngModel)="cliente"
+  >
+    {{cliente.cliente}}
+  </ion-item>
+  <ion-toolbar>
+    <ion-item>
+      <ion-button *ngIf="numPagina > 1" (click)="paginaInicio()">
+        <ion-icon slot="icon-only" name="play-back-outline"></ion-icon
+      ></ion-button>
+      <!--end inicio-->
+      <ion-button *ngIf="numPagina > 1" (click)="paginaAnterior()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon
+      ></ion-button>
+      <!--end anterior-->
+      <ion-button (click)="paginaSiguiente()">
+        <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon
+      ></ion-button>
+      <!--end siguiente-->
+    </ion-item>
+  </ion-toolbar>
 </ion-content>
