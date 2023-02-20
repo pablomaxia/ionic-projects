@@ -13,7 +13,6 @@ import { LineaDetalle } from '../modelo/LineaDetalle';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public clientes: Cliente[];
   public facturas: Factura[];
   public lista: ElementoLista[] = new Array();
 
@@ -86,18 +85,13 @@ export class HomePage implements OnInit {
     });
     modal.onDidDismiss().then((dataNuevaFactura) => {
       console.log(dataNuevaFactura['data']);
-      let nuevaFactura: Factura = new Factura(
-        dataNuevaFactura['data'].id,
-        dataNuevaFactura['data'].cliente,
-        dataNuevaFactura['data'].porcentajeIva,
-        dataNuevaFactura['data'].productos
-      );
+      let nuevaFactura: Factura = dataNuevaFactura['data'];
       console.log(nuevaFactura);
       if (nuevaFactura != null) {
         this.apiService
           .insertarFactura(nuevaFactura)
           .then((factura: Factura) => {
-            console.log(factura);
+            this.facturas.push(factura);
           })
           .catch((error: string) => {
             console.log(error);

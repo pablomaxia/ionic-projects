@@ -1,4 +1,3 @@
-import { ProductoEnviar } from './ProductoEnviar';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -17,56 +16,51 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
   styleUrls: ['./productos.page.scss'],
 })
 export class ProductosPage implements OnInit {
-  public productos: Producto[];
-  public productoEnviar: ProductoEnviar = new ProductoEnviar('', 0, 0, 0.0);
-  public producto: Producto = new Producto(null, null, null);
-  validations_form!: FormGroup;
+  public productos: Map<number, Producto>;
+  public idProductoSeleccionado: number;
+  public productoSeleccionado: Producto;
+  public unidades: number;
 
   constructor(
     private apiService: ApiServiceProvider,
-    private modalCtrl: ModalController,
-    public formBuilder: FormBuilder
-  ) {
-    this.validations_form = this.formBuilder.group({
-      producto: new FormControl(this.producto, Validators.required),
-      unidades: new FormControl(
-        1,
-        Validators.compose([Validators.required, Validators.min(1)])
-      ),
-      importeUnitario: new FormControl(
-        1,
-        Validators.compose([Validators.required, Validators.min(1)])
-      ),
-      importeTotal: new FormControl(
-        1,
-        Validators.compose([Validators.required, Validators.min(1)])
-      ),
-    });
-  }
+    private modalCtrl: ModalController
+  ) {}
 
   ngOnInit() {
     this.apiService
       .getProductos()
-      .then((productos: Producto[]) => {
+      .then((productos: Map<number, Producto>) => {
         this.productos = productos;
         console.log(this.productos);
       })
       .catch((error: string) => console.log(error));
   } //end_ngOnInit
 
-  onSubmit(values: any) {
-    console.log(values['producto']);
-    let producto: ProductoEnviar = new ProductoEnviar(
-      values['producto'].descripcion,
-      values['producto'].unidades,
-      values['producto'].importeUnitario,
-      values['importeTotal']
+  aceptar() {
+    if (!this.productoSeleccionado || this.unidades <= 0) return;
+    let lineaDetalle: LineaDetalle = new LineaDetalle(
+      this.productoSeleccionado.descripcion,
+      this.productoSeleccionado.importeUnitario,
+      this.unidades
     );
-    console.log(producto);
-    this.modalCtrl.dismiss(producto);
+    this.modalCtrl.dismiss(lineaDetalle);
   } //end_enviarProducto
 
   public cancelar() {
-    this.modalCtrl.dismiss(); //se cancela la edición. No se devuelven datos.
+    this.modalCtrl.dismiss(null); //se cancela la edición. No se devuelven datos.
   }
+
+  getProducto(producto: Producto) {
+    console.log(producto);
+  } //end_getProductos
+
+  cambiaProducto() {
+    console.log(this.idProductoSeleccionado);
+    this.productoSeleccionado = this.productos.get(
+      Number(this.idProductoSeleccionado)
+    );
+    console.log(this.productoSeleccionado);
+    this.unidades = 0;
+  }
+  //end_cambiaProducto
 }

@@ -71,7 +71,27 @@ export class ApiServiceProvider {
     return promise;
   } // end_getLineasDetalle
 
-  getProductos(): Promise<Producto[]> {
+  getProductos(): Promise<Map<number, Producto>> {
+    let promise = new Promise<Map<number, Producto>>((resolve, reject) => {
+      this.http
+        .get(this.URL + '/productos')
+        .toPromise()
+        .then((data: any) => {
+          let productos = new Map<number, Producto>();
+          data.forEach((producto: Producto) => {
+            productos.set(producto.id, producto);
+          });
+          resolve(productos);
+        })
+        .catch((error: Error) => {
+          reject(error.message);
+        });
+    });
+
+    return promise;
+  } // end_getProductos
+
+  getProductosArray(): Promise<Producto[]> {
     let promise = new Promise<Producto[]>((resolve, reject) => {
       this.http
         .get(this.URL + '/productos')
@@ -89,7 +109,7 @@ export class ApiServiceProvider {
     });
 
     return promise;
-  } // end_getProductos
+  } // end_getProductosArray
 
   insertarFactura(datosNuevaFactura: Factura): Promise<Factura> {
     let promise = new Promise<Factura>((resolve, reject) => {

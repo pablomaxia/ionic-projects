@@ -11,66 +11,49 @@
 </ion-header>
 
 <ion-content>
-  <form
-    [formGroup]="validations_form"
-    (ngSubmit)="onSubmit(validations_form.value)"
-  >
-    <ion-item>
-      <ion-label position="floating" color="primary">Producto</ion-label>
-      <ion-select
-        cancelText="Cancelar"
-        okText="OK"
-        placeholder="Seleccione un producto"
-        formControlName="producto"
-        [(ngModel)]="productoEnviar"
+  <ion-item>
+    <ion-label position="floating" color="primary">Producto</ion-label>
+    <ion-select
+      cancelText="Cancelar"
+      okText="OK"
+      placeholder="Seleccione un producto"
+      [(ngModel)]="idProductoSeleccionado"
+      (ionChange)="cambiaProducto()"
+    >
+      <ion-select-option
+        *ngFor="let producto of productos | keyvalue"
+        [value]="producto.key"
       >
-        <ion-select-option
-          *ngFor="let producto of productos"
-          [value]="producto.id"
-        >
-          {{producto.descripcion}}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-    <!--end_ion-select-->
-    <ion-item>
-      <ion-label color="primary">Unidades</ion-label>
-      <ion-input
-        type="number"
-        formControlName="unidades"
-        [(ngModel)]="productoEnviar.unidades"
-      ></ion-input>
-    </ion-item>
-    <!--end unidades-->
-    <ion-item>
-      <ion-label color="primary">Importe unitario</ion-label>
-      <ion-item
-        formControlName="importeUnitario"
-        [(ngModel)]="productoEnviar.importeUnitario"
-        >{{productoEnviar.importeUnitario}}€</ion-item
-      >
-    </ion-item>
-    <!--end importeUnitario-->
-    <ion-item>
-      <ion-label color="primary">Importe total</ion-label>
-      <ion-item
-        formControlName="importeTotal"
-        [(ngModel)]="productoEnviar.importeTotal"
-        >{{productoEnviar.importeUnitario * productoEnviar.unidades}}€</ion-item
-      >
-    </ion-item>
-    <!--end importeTotal-->
-    <ion-item>
-      <ion-button
-        color="primary"
-        class="submit-btn"
-        expand="block"
-        type="submit"
-        [disabled]="!validations_form.valid"
-        >Submit data</ion-button
-      >
-      <!--end submit button-->
-    </ion-item>
-  </form>
-  <!--end form-->
+        {{producto.value.descripcion}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <!--end_ion-select-->
+  <ion-item *ngIf="idProductoSeleccionado">
+    <ion-label color="primary">Importe unitario</ion-label>
+    <ion-item [(ngModel)]="productoSeleccionado.importeUnitario"
+      >{{productoSeleccionado.importeUnitario}}€</ion-item
+    >
+  </ion-item>
+  <!--end importeUnitario-->
+  <ion-item>
+    <ion-label color="primary">Unidades</ion-label>
+    <ion-input
+      type="number"
+      placeholder="unidades"
+      [(ngModel)]="unidades"
+    ></ion-input>
+  </ion-item>
+  <!--end unidades-->
+  <ion-item>
+    <ion-button
+      color="primary"
+      class="submit-btn"
+      expand="block"
+      type="button"
+      (click)="aceptar()"
+      >Submit data</ion-button
+    >
+    <!--end submit button-->
+  </ion-item>
 </ion-content>

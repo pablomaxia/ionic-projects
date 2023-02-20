@@ -14,7 +14,6 @@ import { NuevaFacturaPage } from './nueva-factura.page';
     FormsModule,
     IonicModule,
     NuevaFacturaPageRoutingModule,
-    ReactiveFormsModule,
   ],
   declarations: [NuevaFacturaPage],
 })

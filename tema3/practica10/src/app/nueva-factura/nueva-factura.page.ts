@@ -12,9 +12,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./nueva-factura.page.scss'],
 })
 export class NuevaFacturaPage implements OnInit {
-  private IVA: number[] = [];
   public clientes: Cliente[];
-  public producto: LineaDetalle = new LineaDetalle('', 0, 0);
   public factura: Factura = Factura.crearFacturaVacia();
 
   constructor(
@@ -24,14 +22,12 @@ export class NuevaFacturaPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getClientes();
-    for (let index = 1; index < 50; index++) {
-      this.IVA.push(index);
-    }
     console.log(this.factura);
+    this.getClientes();
   } //end_ngOnInit
 
   aceptar() {
+    if (!this.factura.cliente || this.factura.productos.length == 0) return;
     this.modalCtrl.dismiss(this.factura);
   } //end_aceptar
 
@@ -54,9 +50,7 @@ export class NuevaFacturaPage implements OnInit {
   async nuevoProducto() {
     const modal = await this.modalController.create({
       component: ProductosPage,
-      componentProps: {
-        productoEnviar: JSON.stringify(this.producto),
-      },
+      componentProps: {},
     });
     modal.onDidDismiss().then((dataNuevaLineaDetalle) => {
       console.log(dataNuevaLineaDetalle['data']);

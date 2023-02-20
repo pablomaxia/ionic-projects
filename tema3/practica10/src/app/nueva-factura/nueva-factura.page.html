@@ -2,10 +2,6 @@
   <ion-toolbar>
     <ion-title>nueva-factura</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="aceptar()"
-        ><ion-icon slot="icon-only" name="add"
-      /></ion-button>
-      <!--end botón aceptar-->
       <ion-button (click)="cancelar()"
         ><ion-icon slot="icon-only" name="close-circle-outline"
       /></ion-button>
@@ -20,27 +16,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-select
+  <!--<ion-select
     cancelText="Cancelar"
     okText="OK"
     placeholder="Seleccione un cliente"
     [(ngModel)]="factura.cliente"
   >
-    <ion-select-option *ngFor="let cliente of clientes" [value]="cliente">
+    <ion-select-option
+      *ngFor="let cliente of clientes"
+      value="{{cliente.cliente}}"
+    >
       {{cliente.cliente}}
     </ion-select-option>
   </ion-select>
-  <!--end_ion-select-->
+  end_ion-select-->
   <ion-list>
     <ion-item *ngFor="let producto of factura.productos">
       {{producto.descripcion}} {{producto.importeUnitario}}
-      {{producto.unidades}} {{producto.importeUnitario * producto.unidades}}
+      {{producto.unidades}}
     </ion-item>
   </ion-list>
   <!--end_productos factura-->
   <div>
     <ion-item>Importe total sin IVA: {{factura.getTotalSinIva()}}</ion-item>
-    <ion-item>IVA: {{factura.porcentajeIva}}</ion-item>
+    <ion-item>IVA: {{factura.getIva()}}</ion-item>
     <ion-item>Importe total con IVA: {{factura.getTotalConIva()}}</ion-item>
   </div>
+  <ion-item>
+    <ion-button
+      color="primary"
+      class="submit-btn"
+      expand="block"
+      type="button"
+      (click)="aceptar()"
+      >Submit data</ion-button
+    >
+    <!--end submit button-->
+  </ion-item>
 </ion-content>
