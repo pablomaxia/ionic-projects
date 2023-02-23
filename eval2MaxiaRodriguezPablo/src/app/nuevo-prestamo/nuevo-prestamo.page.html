@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>nuevo-prestamo</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelar()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-grid>
+      <ion-radio-group [(ngModel)]="opcionSeleccionada">
+        <ion-row *ngFor="let opcion of opciones">
+          <ion-col size="6">
+            <ion-item>
+              <ion-label>{{opcion}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-radio value="{{opcion}}"></ion-radio>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+    </ion-grid>
+    <!--end grid-->
+  </ion-item>
+  <ion-item>
+    <ion-input
+      type="text"
+      [(ngModel)]="textoBusqueda"
+      placeholder="id/titulo"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="buscarLibro()">Buscar</ion-button>
+  </ion-item>
+  <!--end buscarLibro-->
+  <ion-list>
+    <ion-item
+      *ngFor="let libro of librosBusqueda"
+      (click)="prestarLibro(libro)"
+    >
+      {{libro.id}} {{libro.titulo}}</ion-item
+    >
+  </ion-list>
+</ion-content>

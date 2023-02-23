@@ -1,0 +1,756 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "apellidos": "Twigley",
+      "nombre": "Samuele"
+    },
+    {
+      "id": 2,
+      "apellidos": "Endrighi",
+      "nombre": "Collen"
+    },
+    {
+      "id": 3,
+      "apellidos": "Imlaw",
+      "nombre": "Ignatius"
+    },
+    {
+      "id": 4,
+      "apellidos": "Abbots",
+      "nombre": "Marco"
+    },
+    {
+      "id": 5,
+      "apellidos": "Forrestall",
+      "nombre": "Clerc"
+    },
+    {
+      "id": 6,
+      "apellidos": "Fashion",
+      "nombre": "Sigismond"
+    },
+    {
+      "id": 7,
+      "apellidos": "Bridewell",
+      "nombre": "Sigismund"
+    },
+    {
+      "id": 8,
+      "apellidos": "Bonar",
+      "nombre": "Shannen"
+    },
+    {
+      "id": 9,
+      "apellidos": "Jozaitis",
+      "nombre": "Nancy"
+    },
+    {
+      "id": 10,
+      "apellidos": "Bains",
+      "nombre": "Paco"
+    }
+  ],
+  "libros": [
+    {
+      "id": 1,
+      "titulo": "Beloved",
+      "fechaPrestamo": "11-01-2023",
+      "diasPrestamo": 32,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Hojas de hierba",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 3,
+      "titulo": "Hamlet",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 4,
+      "titulo": "Masnavi",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 5,
+      "titulo": "Saga de Njál",
+      "fechaPrestamo": "07-01-2023",
+      "diasPrestamo": 32,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 6,
+      "titulo": "Casa de muñecas",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 7
+    },
+    {
+      "id": 7,
+      "titulo": "Ulises",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 8,
+      "titulo": "Hojas de hierba",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 2
+    },
+    {
+      "id": 9,
+      "titulo": "Tiempo de migrar al norte",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 10,
+      "titulo": "Hojas de hierba",
+      "fechaPrestamo": "fecha",
+      "diasPrestamo": 4,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 11,
+      "titulo": "Viaje al fin de la noche",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 12,
+      "titulo": "La educación sentimental",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 5
+    },
+    {
+      "id": 13,
+      "titulo": "Odisea",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 14,
+      "titulo": "Los cuentos de Canterbury",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 15,
+      "titulo": "Edipo rey",
+      "fechaPrestamo": "07-02-2023",
+      "diasPrestamo": 36,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 16,
+      "titulo": "Gargantúa y Pantagruel",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 17,
+      "titulo": "El amor en los tiempos del cólera",
+      "fechaPrestamo": "09-01-2023",
+      "diasPrestamo": 15,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 18,
+      "titulo": "1984",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 19,
+      "titulo": "Ana Karenina",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 20,
+      "titulo": "Romancero gitano",
+      "fechaPrestamo": "23-01-2023",
+      "diasPrestamo": 39,
+      "idUsuarioPrestamo": 5
+    },
+    {
+      "id": 21,
+      "titulo": "Cuentos infantiles",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 22,
+      "titulo": "Cuentos",
+      "fechaPrestamo": "05-01-2023",
+      "diasPrestamo": 36,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 23,
+      "titulo": "Almas muertas",
+      "fechaPrestamo": "31-01-2023",
+      "diasPrestamo": 51,
+      "idUsuarioPrestamo": 6
+    },
+    {
+      "id": 24,
+      "titulo": "Crimen y castigo",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 25,
+      "titulo": "¡Absalom",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 26,
+      "titulo": "Cuentos",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 27,
+      "titulo": "Memorias de Adriano",
+      "fechaPrestamo": "22-2-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 2
+    },
+    {
+      "id": 28,
+      "titulo": "Don Quijote de la Mancha",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 29,
+      "titulo": "¡Absalom",
+      "fechaPrestamo": "19-01-2023",
+      "diasPrestamo": 52,
+      "idUsuarioPrestamo": 2
+    },
+    {
+      "id": 30,
+      "titulo": "Crimen y castigo",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 31,
+      "titulo": "Las aventuras de Huckleberry Finn",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 32,
+      "titulo": "Gargantúa y Pantagruel",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 33,
+      "titulo": "La señora Dalloway",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 34,
+      "titulo": "El tambor de hojalata",
+      "fechaPrestamo": "19-01-2023",
+      "diasPrestamo": 22,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 35,
+      "titulo": "La señora Dalloway",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 36,
+      "titulo": "Pedro Páramo",
+      "fechaPrestamo": "23-01-2023",
+      "diasPrestamo": 35,
+      "idUsuarioPrestamo": 9
+    },
+    {
+      "id": 37,
+      "titulo": "Cuentos infantiles",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 38,
+      "titulo": "Poema de Gilgamesh",
+      "fechaPrestamo": "14-02-2023",
+      "diasPrestamo": 57,
+      "idUsuarioPrestamo": 6
+    },
+    {
+      "id": 39,
+      "titulo": "El ruido y la furia",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 40,
+      "titulo": "Cumbres Borrascosas",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 2
+    },
+    {
+      "id": 41,
+      "titulo": "La montaña mágica",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 42,
+      "titulo": "El amor en los tiempos del cólera",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 43,
+      "titulo": "Libro del desasosiego",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 44,
+      "titulo": "El castillo",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 4
+    },
+    {
+      "id": 45,
+      "titulo": "Nostromo",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 46,
+      "titulo": "Mahabhárata",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 47,
+      "titulo": "Cumbres Borrascosas",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 7
+    },
+    {
+      "id": 48,
+      "titulo": "Vida y opiniones del caballero Tristram Shandy",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 49,
+      "titulo": "Fausto",
+      "fechaPrestamo": "18-01-2023",
+      "diasPrestamo": 11,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 50,
+      "titulo": "El ruido y la furia",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 51,
+      "titulo": "Bostan",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 52,
+      "titulo": "Eneida",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 53,
+      "titulo": "Los cuentos de Canterbury",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 54,
+      "titulo": "Fausto",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 55,
+      "titulo": "Grandes Esperanzas",
+      "fechaPrestamo": "23-02-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 4
+    },
+    {
+      "id": 56,
+      "titulo": "El sonido de la montaña",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 57,
+      "titulo": "El sonido de la montaña",
+      "fechaPrestamo": "17-02-2023",
+      "diasPrestamo": 37,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 58,
+      "titulo": "Los endemoniados",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 59,
+      "titulo": "El hombre sin atributos",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 60,
+      "titulo": "En busca del tiempo perdido",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 61,
+      "titulo": "El extranjero",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 62,
+      "titulo": "Lolita",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 63,
+      "titulo": "1984",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 64,
+      "titulo": "Almas muertas",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 65,
+      "titulo": "Poema de Gilgamesh",
+      "fechaPrestamo": "19-01-2023",
+      "diasPrestamo": 37,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 66,
+      "titulo": "La educación sentimental",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 67,
+      "titulo": "Ensayo sobre la ceguera",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 68,
+      "titulo": "El idiota",
+      "fechaPrestamo": "29-01-2023",
+      "diasPrestamo": 8,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 69,
+      "titulo": "Ramayana",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 70,
+      "titulo": "El proceso",
+      "fechaPrestamo": "15-01-2023",
+      "diasPrestamo": 49,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 71,
+      "titulo": "Tiempo de migrar al norte",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 72,
+      "titulo": "Hijos de la medianoche",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 73,
+      "titulo": "Saga de Njál",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 74,
+      "titulo": "Odisea",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 75,
+      "titulo": "La muerte de Iván Ilich",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 76,
+      "titulo": "Jacques el fatalista",
+      "fechaPrestamo": "15-01-2023",
+      "diasPrestamo": 47,
+      "idUsuarioPrestamo": 6
+    },
+    {
+      "id": 77,
+      "titulo": "Poema de Gilgamesh",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 78,
+      "titulo": "Pippi Calzaslargas",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 79,
+      "titulo": "Orgullo y prejuicio",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 80,
+      "titulo": "Los endemoniados",
+      "fechaPrestamo": "21-01-2023",
+      "diasPrestamo": 56,
+      "idUsuarioPrestamo": 9
+    },
+    {
+      "id": 81,
+      "titulo": "El viejo y el mar",
+      "fechaPrestamo": "04-01-2023",
+      "diasPrestamo": 33,
+      "idUsuarioPrestamo": 5
+    },
+    {
+      "id": 82,
+      "titulo": "Cuentos infantiles",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 83,
+      "titulo": " el griego",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 84,
+      "titulo": "Al faro",
+      "fechaPrestamo": "14-01-2023",
+      "diasPrestamo": 7,
+      "idUsuarioPrestamo": 6
+    },
+    {
+      "id": 85,
+      "titulo": "Los Buddenbrook",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 86,
+      "titulo": "Hijos de nuestro barrio",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 87,
+      "titulo": "Berlin Alexanderplatz",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 88,
+      "titulo": "Gran Sertón: Veredas",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 89,
+      "titulo": "Odisea",
+      "fechaPrestamo": "16-02-2023",
+      "diasPrestamo": 15,
+      "idUsuarioPrestamo": 6
+    },
+    {
+      "id": 90,
+      "titulo": "Masnavi",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 91,
+      "titulo": "Hamlet",
+      "fechaPrestamo": "14-02-2023",
+      "diasPrestamo": 58,
+      "idUsuarioPrestamo": 3
+    },
+    {
+      "id": 92,
+      "titulo": "El tambor de hojalata",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 93,
+      "titulo": "Ensayo sobre la ceguera",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 94,
+      "titulo": "Crimen y castigo",
+      "fechaPrestamo": "22-2-2023",
+      "diasPrestamo": 10,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 95,
+      "titulo": "Nostromo",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 96,
+      "titulo": "Genji Monogatari",
+      "fechaPrestamo": "04-02-2023",
+      "diasPrestamo": 52,
+      "idUsuarioPrestamo": 1
+    },
+    {
+      "id": 97,
+      "titulo": "Guerra y paz",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 98,
+      "titulo": "El rey Lear",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 99,
+      "titulo": "Memorias de Adriano",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    },
+    {
+      "id": 100,
+      "titulo": "Zorba",
+      "fechaPrestamo": null,
+      "diasPrestamo": null,
+      "idUsuarioPrestamo": null
+    }
+  ]
+}
